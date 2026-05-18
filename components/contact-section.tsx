@@ -19,6 +19,7 @@ export function ContactForm() {
     objetivo: '',
     ayuda: '',
     patologia: '',
+    presupuesto: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -35,6 +36,7 @@ export function ContactForm() {
 
   const isStep1Valid = formData.nombre && formData.email && formData.telefono && formData.edad && formData.ocupacion
   const isStep2Valid = formData.objetivo && formData.ayuda
+  const isStep3Valid = formData.presupuesto
 
   if (isSubmitted) {
     return (
@@ -55,23 +57,32 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Progress indicator */}
-      <div className="flex items-center justify-center gap-4 mb-8">
+      <div className="flex items-center justify-center gap-2 sm:gap-4 mb-8">
         <div className={`flex items-center gap-2 ${step >= 1 ? 'text-primary' : 'text-muted-foreground'}`}>
           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
             step >= 1 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'
           }`}>
             {step > 1 ? <Check className="w-4 h-4" /> : '1'}
           </div>
-          <span className="text-sm hidden sm:inline">Datos Personales</span>
+          <span className="text-sm hidden sm:inline">Datos</span>
         </div>
-        <div className="w-8 sm:w-16 h-px bg-border" />
+        <div className="w-4 sm:w-12 h-px bg-border" />
         <div className={`flex items-center gap-2 ${step >= 2 ? 'text-primary' : 'text-muted-foreground'}`}>
           <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
             step >= 2 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'
           }`}>
-            2
+            {step > 2 ? <Check className="w-4 h-4" /> : '2'}
           </div>
-          <span className="text-sm hidden sm:inline">Objetivos y Salud</span>
+          <span className="text-sm hidden sm:inline">Objetivos</span>
+        </div>
+        <div className="w-4 sm:w-12 h-px bg-border" />
+        <div className={`flex items-center gap-2 ${step >= 3 ? 'text-primary' : 'text-muted-foreground'}`}>
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+            step >= 3 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'
+          }`}>
+            3
+          </div>
+          <span className="text-sm hidden sm:inline">Compromiso</span>
         </div>
       </div>
 
@@ -227,8 +238,59 @@ export function ContactForm() {
               Atrás
             </Button>
             <Button
-              type="submit"
+              type="button"
+              onClick={() => setStep(3)}
               disabled={!isStep2Valid}
+              className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 glow-effect"
+            >
+              Continuar
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* Step 3: Budget */}
+      {step === 3 && (
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <Label>¿Estás dispuesto a gastarte más de 200€ en tu cambio físico?</Label>
+            <RadioGroup
+              value={formData.presupuesto}
+              onValueChange={(value) => handleInputChange('presupuesto', value)}
+              className="grid grid-cols-2 gap-4"
+            >
+              {['Sí', 'No'].map((option) => (
+                <div key={option}>
+                  <RadioGroupItem
+                    value={option}
+                    id={`presupuesto-${option}`}
+                    className="peer sr-only"
+                  />
+                  <Label
+                    htmlFor={`presupuesto-${option}`}
+                    className="flex items-center justify-center px-6 py-4 rounded-lg border border-border bg-secondary/50 cursor-pointer transition-all peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 hover:border-primary/50 text-lg"
+                  >
+                    {option}
+                  </Label>
+                </div>
+              ))}
+            </RadioGroup>
+          </div>
+
+          <div className="flex gap-4 pt-4">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setStep(2)}
+              className="flex-1"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Atrás
+            </Button>
+            <Button
+              type="submit"
+              disabled={!isStep3Valid}
               className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 glow-effect"
             >
               Enviar Solicitud

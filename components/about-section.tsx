@@ -34,7 +34,7 @@ export function AboutSection() {
             </div>
 
             <p className="text-muted-foreground leading-relaxed">
-              Con más de 10 años de experiencia en el mundo del fitness y la preparación 
+              Con más de 7 años de experiencia en el mundo del fitness y la preparación 
               física, he dedicado mi carrera a ayudar a atletas y personas comprometidas 
               a alcanzar su máximo potencial.
             </p>
@@ -72,7 +72,7 @@ export function AboutSection() {
                   <Heart className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">10+ Años</p>
+                  <p className="text-sm font-medium">+7 Años</p>
                   <p className="text-xs text-muted-foreground">Experiencia</p>
                 </div>
               </div>

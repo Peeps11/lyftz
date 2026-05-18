@@ -58,16 +58,18 @@ export function TransformationsSection() {
           {transformations.map((item) => (
             <div
               key={item.id}
-              className="group relative rounded-xl border border-border bg-card overflow-hidden hover:border-primary/50 transition-all duration-300"
+              className="group relative rounded-2xl border-2 border-border bg-card overflow-hidden hover:border-primary transition-all duration-300 shadow-lg hover:shadow-primary/20"
             >
-              <div className="aspect-[4/5] relative">
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
+              <div className="p-2">
+                <div className="aspect-[4/5] relative rounded-xl overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
               </div>
             </div>
           ))}
@@ -82,15 +84,17 @@ export function TransformationsSection() {
             >
               {transformations.map((item) => (
                 <div key={item.id} className="w-full flex-shrink-0 px-2">
-                  <div className="rounded-xl border border-border bg-card overflow-hidden">
-                    <div className="aspect-[4/5] relative">
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                      />
+                  <div className="rounded-2xl border-2 border-border bg-card overflow-hidden shadow-lg">
+                    <div className="p-2">
+                      <div className="aspect-[4/5] relative rounded-xl overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.alt}
+                          fill
+                          className="object-cover"
+                          sizes="100vw"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

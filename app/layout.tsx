@@ -14,9 +14,9 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
-  title: 'FISIBA | Athlete Performance Hub',
-  description: 'Premium, high-performance online coaching for athletes and individuals looking to optimize their physical performance and aesthetics.',
-  keywords: ['coaching', 'fitness', 'athlete', 'performance', 'training', 'nutrition'],
+  title: 'LYFTZ | Transforma Tu Cuerpo',
+  description: 'Coaching online personalizado de entrenamiento y nutricion. Consigue el fisico que buscas con ciencia y seguimiento diario.',
+  keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado'],
 }
 
 export default function RootLayout({

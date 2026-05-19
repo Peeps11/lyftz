@@ -16,10 +16,10 @@ export function Footer() {
 
           {/* Legal Links */}
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/politica-privacidad" className="hover:text-foreground transition-colors">
               Política de Privacidad
             </Link>
-            <Link href="#" className="hover:text-foreground transition-colors">
+            <Link href="/terminos-condiciones" className="hover:text-foreground transition-colors">
               Términos y Condiciones
             </Link>
           </div>

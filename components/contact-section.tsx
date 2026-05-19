@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { ArrowRight, ArrowLeft, Check, Calendar, Phone } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Check, Calendar } from 'lucide-react'
 
 export function ContactForm() {
   const [step, setStep] = useState(1)
@@ -287,7 +287,7 @@ export function ContactForm() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Agenda tu llamada gratuita</h4>
-                  <p className="text-sm text-muted-foreground">Reserva una videollamada de 15 minutos conmigo</p>
+                  <p className="text-sm text-muted-foreground">Reserva una videollamada de 30 minutos conmigo</p>
                 </div>
               </div>
               
@@ -296,26 +296,15 @@ export function ContactForm() {
                 cómo puedo ayudarte a conseguir los resultados que buscas.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a 
-                  href="https://calendly.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors glow-effect"
-                >
-                  <Calendar className="w-4 h-4" />
-                  Reservar en Calendly
-                </a>
-                <a 
-                  href="https://wa.me/34600000000" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border bg-secondary/50 font-medium hover:border-primary/50 transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  Contactar por WhatsApp
-                </a>
-              </div>
+              <a 
+                href="https://calendly.com/nutritionbadia/30min" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors glow-effect"
+              >
+                <Calendar className="w-4 h-4" />
+                Reservar en Calendly
+              </a>
             </div>
           )}
 

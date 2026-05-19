@@ -34,15 +34,18 @@ export function AboutSection() {
             </div>
 
             <p className="text-muted-foreground leading-relaxed">
-              Con más de 7 años de experiencia en el mundo del fitness y la preparación 
-              física, he dedicado mi carrera a ayudar a atletas y personas comprometidas 
-              a alcanzar su máximo potencial.
+              Tras más de 7 años de experiencia y acreditaciones a nivel nacional e 
+              internacional tanto en preparación física como en dietética, descubrí 
+              que mi verdadera pasión es ayudar a las personas a verse y sentirse 
+              mejor que nunca.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              Mi filosofía se basa en la ciencia, la constancia y la personalización. 
-              Cada persona es única, y por eso cada programa que diseño está adaptado 
-              específicamente a tus necesidades, objetivos y estilo de vida.
+              Mi enfoque combina la base científica con la realidad de tu día a día. 
+              Aquí no encontrarás dietas imposibles ni entrenamientos genéricos. Cada 
+              programa está diseñado minuciosamente para adaptarse a tus necesidades 
+              y objetivos particulares, dándote las herramientas y el apoyo diario 
+              que necesitas para lograr resultados sin complicarte la vida.
             </p>
 
             {/* Credentials */}

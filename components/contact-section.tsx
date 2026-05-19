@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { ArrowRight, ArrowLeft, Check } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Check, Calendar, Phone } from 'lucide-react'
 
 export function ContactForm() {
   const [step, setStep] = useState(1)
@@ -277,6 +277,57 @@ export function ContactForm() {
               ))}
             </RadioGroup>
           </div>
+
+          {/* Show call scheduling section if user selected "Sí" */}
+          {formData.presupuesto === 'Sí' && (
+            <div className="p-6 rounded-xl border border-primary/30 bg-primary/5 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Calendar className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">Agenda tu llamada gratuita</h4>
+                  <p className="text-sm text-muted-foreground">Reserva una videollamada de 15 minutos conmigo</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-muted-foreground">
+                En esta llamada analizaremos tu situación actual, tus objetivos y te explicaré 
+                cómo puedo ayudarte a conseguir los resultados que buscas.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a 
+                  href="https://calendly.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors glow-effect"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Reservar en Calendly
+                </a>
+                <a 
+                  href="https://wa.me/34600000000" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border bg-secondary/50 font-medium hover:border-primary/50 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Contactar por WhatsApp
+                </a>
+              </div>
+            </div>
+          )}
+
+          {formData.presupuesto === 'No' && (
+            <div className="p-6 rounded-xl border border-border bg-secondary/30 space-y-3">
+              <p className="text-muted-foreground">
+                Entiendo. Por ahora no tengo opciones disponibles para ese presupuesto, 
+                pero puedes seguirme en redes sociales donde comparto contenido gratuito 
+                que puede ayudarte en tu camino.
+              </p>
+            </div>
+          )}
 
           <div className="flex gap-4 pt-4">
             <Button

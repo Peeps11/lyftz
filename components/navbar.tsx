@@ -41,9 +41,9 @@ export function Navbar() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/vercel/share/v0-project/public/images/lyftz-logo-EkExpfxlSJiwQSspLbx3mazXOnOeht.jpg"
               alt="LYFTZ Logo"
-              width={100}
-              height={40}
-              className="h-8 md:h-10 w-auto"
+              width={160}
+              height={64}
+              className="h-12 md:h-14 w-auto"
               priority
             />
           </Link>

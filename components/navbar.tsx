@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -38,14 +37,10 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="#inicio" className="flex items-center">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/vercel/share/v0-project/public/images/lyftz-logo-EkExpfxlSJiwQSspLbx3mazXOnOeht.jpg"
-              alt="LYFTZ Logo"
-              width={160}
-              height={64}
-              className="h-12 md:h-14 w-auto"
-              priority
-            />
+            <span className="text-xl md:text-2xl font-bold tracking-tight font-[family-name:var(--font-syne)]">
+              <span className="text-foreground">LYFT</span>
+              <span className="text-primary">Z</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -32,19 +32,19 @@ const testimonials = [
     initials: 'MG',
     quote: "Llevaba 3 años probando cosas sin resultado. En 4 meses con Badia bajé 12 kg sin pasar hambre y sin dejar de comer con mi familia los fines de semana.",
     name: "María G.",
-    meta: "32 años · −12 kg en 4 meses",
+    meta: "32 años",
   },
   {
     initials: 'CL',
     quote: "Trabajo 10 horas al día y pensaba que no tenía tiempo. Badia me diseñó un plan de 3 días a la semana y en 6 meses cambié más que en 2 años yendo al gym por mi cuenta.",
     name: "Carlos L.",
-    meta: "38 años · +8 kg de músculo",
+    meta: "38 años",
   },
   {
     initials: 'AL',
     quote: "Lo que más valoro es el WhatsApp diario. Cuando tienes una duda a las 8 de la noche y recibes respuesta en minutos, eso marca la diferencia.",
     name: "Ana L.",
-    meta: "27 años · Recomposición corporal",
+    meta: "27 años",
   },
 ]
 
@@ -68,37 +68,16 @@ export function TransformationsSection() {
             Resultados reales
           </span>
           <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
-            Lo que dicen las<br />personas que{' '}
-            <em className="text-primary not-italic">confiaron</em>
+            Transformaciones que{' '}
+            <em className="text-primary not-italic">hablan por sí solas</em>
           </h2>
           <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
             No fotos de stock. Clientes reales con nombres reales y transformaciones que puedes verificar.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {testimonials.map((testi, index) => (
-            <div key={index} className="reveal bg-card border border-border rounded-[10px] p-7">
-              <div className="text-primary text-[0.9rem] tracking-[0.1em] mb-4">★★★★★</div>
-              <p className="text-[0.95rem] text-muted-foreground leading-[1.7] italic font-light mb-6">
-                &ldquo;{testi.quote}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted border border-[rgba(0,229,255,0.3)] flex items-center justify-center text-[0.85rem] font-semibold text-primary">
-                  {testi.initials}
-                </div>
-                <div>
-                  <p className="text-[0.9rem] font-medium text-foreground">{testi.name}</p>
-                  <p className="text-[0.78rem] text-[#555550]">{testi.meta}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Transformations Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* Transformations Grid - RESULTS FIRST */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           {transformations.map((item) => (
             <div
               key={item.id}
@@ -118,7 +97,7 @@ export function TransformationsSection() {
         </div>
 
         {/* Mobile Slider */}
-        <div className="md:hidden mb-8">
+        <div className="md:hidden mb-16">
           <div className="relative overflow-hidden rounded-[10px]">
             <div
               className="flex transition-transform duration-300 ease-out"
@@ -170,9 +149,40 @@ export function TransformationsSection() {
           </div>
         </div>
 
-        <p className="text-center text-[0.82rem] text-[#555550] italic">
-          * Los resultados varían según el punto de partida, la constancia y el contexto de cada persona.
-        </p>
+        {/* Separator */}
+        <div className="border-t border-border mb-16" />
+
+        {/* Testimonials Header */}
+        <div className="mb-8">
+          <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
+            Lo que dicen
+          </span>
+          <h3 className="font-display text-[clamp(1.8rem,2.5vw,2.5rem)] tracking-[0.03em] leading-[1.05] text-foreground">
+            Personas que{' '}
+            <em className="text-primary not-italic">confiaron</em>
+          </h3>
+        </div>
+
+        {/* Testimonials Grid - REVIEWS SECOND */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((testi, index) => (
+            <div key={index} className="reveal bg-card border border-border rounded-[10px] p-7">
+              <div className="text-primary text-[0.9rem] tracking-[0.1em] mb-4">★★★★★</div>
+              <p className="text-[0.95rem] text-muted-foreground leading-[1.7] italic font-light mb-6">
+                &ldquo;{testi.quote}&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-muted border border-[rgba(0,229,255,0.3)] flex items-center justify-center text-[0.85rem] font-semibold text-primary">
+                  {testi.initials}
+                </div>
+                <div>
+                  <p className="text-[0.9rem] font-medium text-foreground">{testi.name}</p>
+                  <p className="text-[0.78rem] text-[#555550]">{testi.meta}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

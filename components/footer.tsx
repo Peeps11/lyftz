@@ -5,8 +5,11 @@ export function Footer() {
     <footer className="bg-background border-t border-border px-[5%] py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
         {/* Logo */}
-        <Link href="#inicio" className="font-display text-[1.8rem] tracking-[0.12em] text-primary no-underline">
-          LYFTZ
+        <Link href="#inicio" className="flex items-center">
+          <span className="text-xl font-bold tracking-tight font-display">
+            <span className="text-foreground">LYFT</span>
+            <span className="text-primary">Z</span>
+          </span>
         </Link>
 
         {/* Legal Links */}

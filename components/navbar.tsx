@@ -27,8 +27,11 @@ export function Navbar() {
       isScrolled ? 'bg-[rgba(12,12,12,0.92)] backdrop-blur-[10px] border-border' : 'bg-transparent border-transparent'
     }`}>
       {/* Logo */}
-      <Link href="#inicio" className="font-display text-3xl tracking-[0.12em] text-primary no-underline">
-        LYFTZ
+      <Link href="#inicio" className="flex items-center">
+        <span className="text-xl md:text-2xl font-bold tracking-tight font-display">
+          <span className="text-foreground">LYFT</span>
+          <span className="text-primary">Z</span>
+        </span>
       </Link>
 
       {/* Desktop Nav Links */}

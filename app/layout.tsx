@@ -1,18 +1,17 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Bebas_Neue } from 'next/font/google'
+import { Syne, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const dmSans = DM_Sans({ 
+const inter = Inter({ 
   subsets: ["latin"],
-  variable: '--font-dm-sans',
-  weight: ['300', '400', '500', '700'],
+  variable: '--font-inter',
 })
 
-const bebasNeue = Bebas_Neue({ 
+const syne = Syne({ 
   subsets: ["latin"],
-  variable: '--font-bebas',
-  weight: '400',
+  variable: '--font-syne',
+  weight: ['700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${syne.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

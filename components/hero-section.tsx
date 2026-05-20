@@ -15,7 +15,7 @@ export function HeroSection() {
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 text-[0.75rem] font-medium tracking-[0.16em] uppercase text-primary border border-[rgba(0,229,255,0.3)] px-3 py-1.5 rounded-[2px] mb-6">
           <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-dot" />
-          Plazas limitadas · Solo 4 disponibles
+          Plazas limitadas <span className="inline-flex items-center"><span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-dot mx-1" /></span> Solo 5 disponibles
         </div>
 
         {/* Title */}
@@ -41,12 +41,6 @@ export function HeroSection() {
           >
             Quiero mi videollamada gratuita
             <ArrowRight className="w-4 h-4 group-hover:translate-x-[3px] transition-transform" />
-          </Link>
-          <Link 
-            href="#sobre-mi"
-            className="inline-flex items-center gap-1.5 text-muted-foreground text-[0.85rem] no-underline hover:text-foreground transition-colors"
-          >
-            Conocer más ↓
           </Link>
         </div>
 

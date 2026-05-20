@@ -76,10 +76,10 @@ export function FeaturesSection() {
         <div className="reveal bg-[rgba(0,229,255,0.15)] border border-[rgba(0,229,255,0.3)] rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <strong className="font-display text-[1.6rem] tracking-[0.05em] text-primary block">
-              Solo acepto 6 clientes nuevos al mes
+              Solo acepto 10 clientes nuevos al mes
             </strong>
             <span className="text-[0.9rem] text-muted-foreground">
-              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 4 plazas.
+              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 5 plazas.
             </span>
           </div>
           <div className="flex flex-col gap-3">
@@ -87,12 +87,16 @@ export function FeaturesSection() {
               <div className="flex gap-2">
                 <span className="w-3.5 h-3.5 rounded-full bg-primary" />
                 <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
               </div>
-              <span className="text-[0.8rem] text-muted-foreground ml-2">4 libres de 6</span>
+              <span className="text-[0.8rem] text-muted-foreground ml-2">5 libres de 10</span>
             </div>
             <Link 
               href="#contacto"

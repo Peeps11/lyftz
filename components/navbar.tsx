@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#sobre-mi', label: 'Sobre Mí' },
-  { href: '#incluye', label: 'Qué Incluye' },
+  { href: '#sobre-mi', label: 'Sobre mí' },
+  { href: '#incluye', label: 'Qué incluye' },
   { href: '#resultados', label: 'Resultados' },
   { href: '#faq', label: 'FAQ' },
 ]
@@ -51,7 +50,7 @@ export function Navbar() {
         href="#contacto"
         className="hidden md:inline-flex bg-primary text-primary-foreground px-5 py-2.5 text-[0.82rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 hover:-translate-y-[1px] transition-all"
       >
-        Empezar
+        Consulta gratuita
       </Link>
 
       {/* Mobile Menu Button */}
@@ -86,7 +85,7 @@ export function Navbar() {
                 className="block text-center bg-primary text-primary-foreground px-5 py-3 text-[0.85rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Empezar
+                Consulta gratuita
               </Link>
             </li>
           </ul>

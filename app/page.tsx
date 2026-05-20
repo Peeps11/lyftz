@@ -7,10 +7,12 @@ import { TransformationsSection } from '@/components/transformations-section'
 import { FAQSection } from '@/components/faq-section'
 import { ContactSection } from '@/components/contact-section'
 import { Footer } from '@/components/footer'
+import { ScrollReveal } from '@/components/scroll-reveal'
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <ScrollReveal />
       <Navbar />
       <HeroSection />
       <ProofStrip />

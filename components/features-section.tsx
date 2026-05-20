@@ -2,34 +2,34 @@ import Link from 'next/link'
 
 const features = [
   {
-    icon: '📹',
-    title: 'Videollamada Inicial',
-    description: 'Sesión de 30 minutos para establecer tus objetivos y conocer tu punto de partida.',
+    icon: '📞',
+    title: 'Videollamada inicial',
+    description: 'Antes de empezar, te conozco de verdad. Tus objetivos, tu historial, tu día a día. El punto de partida lo marcamos juntos.',
   },
   {
     icon: '🥗',
-    title: 'Plan Nutricional',
-    description: 'Totalmente adaptado a tus gustos, horarios y necesidades. Sin dietas imposibles.',
+    title: 'Plan nutricional real',
+    description: 'Adaptado a tus gustos, tus horarios y tu presupuesto. Come lo que te gusta. Sin alimentos raros. Sin pasar hambre.',
   },
   {
     icon: '💪',
-    title: 'Plan de Entrenamiento',
-    description: 'Diseñado a medida para maximizar tu rendimiento y estética corporal.',
+    title: 'Plan de entrenamiento a medida',
+    description: 'Diseñado para tu nivel, tu material disponible y tu tiempo real. Con o sin gimnasio. Con o sin mucho tiempo libre.',
   },
   {
     icon: '📱',
-    title: 'App de Seguimiento',
-    description: 'Lleva tu rutina, registros y videos de ejercicios siempre en tu bolsillo.',
+    title: 'App propia de seguimiento',
+    description: 'Tus rutinas, tus registros y los vídeos de los ejercicios siempre en el bolsillo. Sin hojas de Excel, sin líos.',
   },
   {
     icon: '📊',
-    title: 'Revisiones Semanales',
-    description: 'Análisis de progreso para ajustar el plan y garantizar resultados.',
+    title: 'Revisiones semanales',
+    description: 'Analizamos tu progreso cada semana y ajustamos el plan. Por eso nunca te estancas: siempre vas hacia delante.',
   },
   {
     icon: '💬',
-    title: 'Soporte Diario',
-    description: 'Resolución de dudas de forma directa y diaria por WhatsApp.',
+    title: 'Yo contigo cada día',
+    description: 'Soporte diario por WhatsApp. Cualquier duda, ajuste o bajón motivacional — estoy ahí. No esperas al próximo entreno.',
   },
 ]
 
@@ -40,14 +40,14 @@ export function FeaturesSection() {
         {/* Section Header */}
         <div className="mb-12">
           <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
-            Todo Incluido
+            Qué incluye
           </span>
           <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
-            QUÉ INCLUYE EL{' '}
-            <em className="text-primary not-italic">PROGRAMA</em>
+            Todo lo que necesitas<br />para{' '}
+            <em className="text-primary not-italic">no fallar esta vez</em>
           </h2>
           <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
-            Un paquete completo diseñado para darte todas las herramientas que necesitas para transformarte.
+            No solo un plan. Un sistema completo con el apoyo diario que hace que la gente llegue al final.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="card-hover relative p-7 rounded-[10px] border border-border bg-card"
+              className="card-hover reveal relative p-7 rounded-[10px] border border-border bg-card"
             >
               {/* Icon */}
               <span className="text-[1.8rem] mb-4 block">{feature.icon}</span>
@@ -73,32 +73,34 @@ export function FeaturesSection() {
         </div>
 
         {/* Urgency Banner */}
-        <div className="bg-[rgba(0,229,255,0.15)] border border-[rgba(0,229,255,0.3)] rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="reveal bg-[rgba(0,229,255,0.15)] border border-[rgba(0,229,255,0.3)] rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <strong className="font-display text-[1.6rem] tracking-[0.05em] text-primary block">
-              PLAZAS LIMITADAS
+              Solo acepto 6 clientes nuevos al mes
             </strong>
             <span className="text-[0.9rem] text-muted-foreground">
-              Solo trabajo con un número reducido de clientes para garantizar la calidad del servicio.
+              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 4 plazas.
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="flex gap-2">
-              {[...Array(7)].map((_, i) => (
-                <span 
-                  key={i} 
-                  className={`w-3.5 h-3.5 rounded-full ${i < 5 ? 'bg-primary' : 'bg-muted border border-[rgba(0,229,255,0.3)]'}`} 
-                />
-              ))}
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
+              <div className="flex gap-2">
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
+                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
+              </div>
+              <span className="text-[0.8rem] text-muted-foreground ml-2">4 libres de 6</span>
             </div>
-            <span className="text-[0.8rem] text-muted-foreground ml-2">2 plazas libres</span>
+            <Link 
+              href="#contacto"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-[0.85rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 transition-all whitespace-nowrap"
+            >
+              Reservar mi plaza →
+            </Link>
           </div>
-          <Link 
-            href="#contacto"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-[0.85rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 transition-all whitespace-nowrap"
-          >
-            Reservar Plaza
-          </Link>
         </div>
       </div>
     </section>

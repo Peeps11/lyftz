@@ -4,28 +4,28 @@ import { useState } from 'react'
 
 const faqs = [
   {
-    question: '¿Necesito material o ir al gimnasio obligatoriamente?',
-    answer: 'No necesariamente. Puedo diseñar planes adaptados a entrenar en casa con material mínimo, en un gimnasio comercial, o incluso combinando ambos. El programa se adapta completamente a los recursos que tengas disponibles.',
+    question: '¿Necesito ir al gimnasio obligatoriamente?',
+    answer: 'No. El plan de entrenamiento se diseña según tu material disponible. Puedes entrenar en un gimnasio completo, en casa con material básico, o incluso solo con tu peso corporal. Lo que importa es la constancia, no dónde lo haces.',
   },
   {
-    question: '¿Cuánto dura el compromiso mínimo?',
-    answer: 'El compromiso mínimo es de 3 meses, ya que es el tiempo necesario para ver cambios significativos y establecer hábitos sostenibles.',
+    question: '¿Cuánto cuesta el coaching?',
+    answer: 'El precio varía según la duración y el nivel de seguimiento. Lo comentamos en la videollamada inicial gratuita, donde también veo si puedo ayudarte y qué opción encaja mejor con tu situación. Sin compromiso.',
   },
   {
-    question: '¿El plan de nutrición incluye alimentos raros o restrictivos?',
-    answer: 'Para nada. El plan nutricional se basa en alimentos accesibles y que te gusten. No creo en dietas restrictivas ni en eliminar grupos de alimentos. El objetivo es crear un plan que puedas mantener a largo plazo.',
+    question: '¿En cuánto tiempo veré resultados?',
+    answer: 'Depende de tu punto de partida y tu objetivo, pero la mayoría de clientes empieza a notar cambios visibles en las primeras 4-6 semanas. Resultados significativos suelen llegar en 3-4 meses con constancia.',
   },
   {
-    question: '¿Qué pasa si no puedo entrenar algún día?',
-    answer: 'La vida pasa, y el programa está diseñado para ser flexible. Si un día no puedes entrenar, simplemente me lo comunicas y ajustamos el plan. La consistencia a largo plazo es más importante que la perfección diaria.',
+    question: '¿Qué compromiso mínimo hay?',
+    answer: 'Trabajamos con un mínimo de 3 meses porque los cambios reales llevan tiempo. No vendo soluciones milagro. Si buscas resultados en 2 semanas, no soy tu entrenador. Si buscas un cambio real y duradero, hablemos.',
   },
   {
-    question: '¿Cómo es el soporte por WhatsApp?',
-    answer: 'Tendrás acceso directo a mí por WhatsApp para resolver cualquier duda sobre entrenamiento, nutrición o seguimiento. Respondo todos los días en horario establecido, garantizando que nunca te sientas solo en el proceso.',
+    question: '¿Por qué no usar una app o YouTube?',
+    answer: 'Las apps y YouTube son geniales para el conocimiento general, pero no conocen tu historial, tus lesiones, tus horarios ni tus gustos. Yo sí. La diferencia entre un plan genérico y uno personalizado es exactamente la diferencia entre el progreso que llevas y el que querrías tener.',
   },
   {
-    question: '¿Qué métodos de pago aceptáis?',
-    answer: 'Aceptamos transferencia bancaria y pago con tarjeta. El pago se realiza de forma mensual por adelantado.',
+    question: '¿Qué pasa si un día no puedo entrenar?',
+    answer: 'Absolutamente nada. La vida pasa. Me escribes por WhatsApp y ajustamos. El objetivo es construir un hábito sostenible, no castigarte por ser humano. Flexibilidad real es parte del método.',
   },
 ]
 
@@ -38,19 +38,16 @@ export function FAQSection() {
 
   return (
     <section id="faq" className="py-24 px-[5%] bg-background">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
           <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
-            FAQ
+            Preguntas frecuentes
           </span>
           <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
-            PREGUNTAS{' '}
-            <em className="text-primary not-italic">FRECUENTES</em>
+            Todo lo que te estás<br />preguntando{' '}
+            <em className="text-primary not-italic">ahora mismo</em>
           </h2>
-          <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
-            Resolvemos las dudas más comunes antes de empezar.
-          </p>
         </div>
 
         {/* FAQ Grid */}
@@ -58,16 +55,16 @@ export function FAQSection() {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-secondary p-6 cursor-pointer hover:bg-card transition-colors ${openIndex === index ? 'bg-card' : ''}`}
+              className={`bg-secondary p-8 cursor-pointer hover:bg-card transition-colors ${openIndex === index ? 'bg-card' : ''}`}
               onClick={() => toggleFaq(index)}
             >
               <div className="flex justify-between items-start gap-4 text-[0.95rem] font-semibold text-foreground mb-2">
                 <span>{faq.question}</span>
-                <span className={`text-primary text-xl font-light flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45' : ''}`}>
+                <span className={`text-primary text-[1.3rem] font-light flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45' : ''}`}>
                   +
                 </span>
               </div>
-              <div className={`text-[0.88rem] text-muted-foreground leading-[1.7] font-light overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+              <div className={`text-[0.88rem] text-muted-foreground leading-[1.7] font-light overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-60 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
                 {faq.answer}
               </div>
             </div>

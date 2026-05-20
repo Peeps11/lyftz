@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-background border-t border-border px-[5%] py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
         {/* Logo */}
-        <Link href="#inicio" className="font-display text-3xl tracking-[0.12em] text-primary no-underline">
+        <Link href="#inicio" className="font-display text-[1.8rem] tracking-[0.12em] text-primary no-underline">
           LYFTZ
         </Link>
 
@@ -15,20 +15,26 @@ export function Footer() {
             href="/politica-privacidad" 
             className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
           >
-            Política de Privacidad
+            Política de privacidad
           </Link>
           <Link 
             href="/terminos-condiciones" 
             className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
           >
-            Términos y Condiciones
+            Términos y condiciones
+          </Link>
+          <Link 
+            href="#contacto" 
+            className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
+          >
+            Contacto
           </Link>
         </div>
 
         {/* Social Links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/lyftz.fit"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
@@ -37,16 +43,7 @@ export function Footer() {
             IG
           </a>
           <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
-            aria-label="YouTube"
-          >
-            YT
-          </a>
-          <a
-            href="https://tiktok.com"
+            href="https://tiktok.com/@lyftz"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
@@ -54,13 +51,22 @@ export function Footer() {
           >
             TK
           </a>
+          <a
+            href="https://youtube.com/@lyftz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
+            aria-label="YouTube"
+          >
+            YT
+          </a>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-border text-center">
         <p className="text-[0.75rem] text-[#555550]">
-          © {new Date().getFullYear()} LYFTZ. Todos los derechos reservados.
+          © 2026 LYFTZ. Todos los derechos reservados.
         </p>
       </div>
     </footer>

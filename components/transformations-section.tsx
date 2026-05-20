@@ -67,13 +67,10 @@ export function TransformationsSection() {
           <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
             Resultados reales
           </span>
-          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
+          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] text-foreground">
             Transformaciones que{' '}
             <em className="text-primary not-italic">hablan por sí solas</em>
           </h2>
-          <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
-            No fotos de stock. Clientes reales con nombres reales y transformaciones que puedes verificar.
-          </p>
         </div>
 
         {/* Transformations Grid - RESULTS FIRST */}

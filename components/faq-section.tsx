@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { useState } from 'react'
 
 const faqs = [
   {
@@ -28,42 +23,56 @@ const faqs = [
     question: '¿Cómo es el soporte por WhatsApp?',
     answer: 'Tendrás acceso directo a mí por WhatsApp para resolver cualquier duda sobre entrenamiento, nutrición o seguimiento. Respondo todos los días en horario establecido, garantizando que nunca te sientas solo en el proceso.',
   },
+  {
+    question: '¿Qué métodos de pago aceptáis?',
+    answer: 'Aceptamos transferencia bancaria y pago con tarjeta. El pago se realiza de forma mensual por adelantado.',
+  },
 ]
 
 export function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggleFaq = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="py-24 px-[5%] bg-background">
+      <div className="max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-syne)] mt-2 mb-4">
-            Preguntas <span className="text-primary">Frecuentes</span>
+        <div className="mb-12">
+          <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
+            FAQ
+          </span>
+          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
+            PREGUNTAS{' '}
+            <em className="text-primary not-italic">FRECUENTES</em>
           </h2>
-          <p className="text-muted-foreground text-pretty">
+          <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
             Resolvemos las dudas más comunes antes de empezar.
           </p>
         </div>
 
-        {/* Accordion */}
-        <Accordion type="single" collapsible className="space-y-4">
+        {/* FAQ Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-[10px] overflow-hidden">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border border-border rounded-xl px-6 bg-card data-[state=open]:border-primary/50 transition-colors"
+            <div 
+              key={index} 
+              className={`bg-secondary p-6 cursor-pointer hover:bg-card transition-colors ${openIndex === index ? 'bg-card' : ''}`}
+              onClick={() => toggleFaq(index)}
             >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="font-medium font-[family-name:var(--font-syne)] pr-4">
-                  {faq.question}
+              <div className="flex justify-between items-start gap-4 text-[0.95rem] font-semibold text-foreground mb-2">
+                <span>{faq.question}</span>
+                <span className={`text-primary text-xl font-light flex-shrink-0 transition-transform duration-200 ${openIndex === index ? 'rotate-45' : ''}`}>
+                  +
                 </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+              </div>
+              <div className={`text-[0.88rem] text-muted-foreground leading-[1.7] font-light overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
                 {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              </div>
+            </div>
           ))}
-        </Accordion>
+        </div>
       </div>
     </section>
   )

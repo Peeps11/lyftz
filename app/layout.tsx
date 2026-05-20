@@ -1,21 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter, Syne } from 'next/font/google'
+import { DM_Sans, Bebas_Neue } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const dmSans = DM_Sans({ 
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
+  weight: ['300', '400', '500', '700'],
 })
 
-const syne = Syne({ 
+const bebasNeue = Bebas_Neue({ 
   subsets: ["latin"],
-  variable: '--font-syne',
+  variable: '--font-bebas',
+  weight: '400',
 })
 
 export const metadata: Metadata = {
-  title: 'LYFTZ | Transforma Tu Cuerpo',
-  description: 'Coaching online personalizado de entrenamiento y nutricion. Consigue el fisico que buscas con ciencia y seguimiento diario.',
+  title: 'LYFTZ | Coaching Online que Funciona de Verdad',
+  description: 'Coaching online personalizado de entrenamiento y nutricion. Mas de 50 personas transformadas con ciencia y seguimiento diario. Videollamada inicial gratuita.',
   keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado'],
 }
 
@@ -26,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className={`${inter.variable} ${syne.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} ${bebasNeue.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

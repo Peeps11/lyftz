@@ -1,33 +1,28 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const transformations = [
   {
     id: 1,
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TheJohnKnee%20%20What%20a%20difference%20a%20year%20can%20do%20_TransformationTuesday-cRxnRamIU2X9tWeS0ZmgSRHjHvvL2W.jpg',
-    label: 'Cliente 01',
-    year: '2024',
+    name: 'Cliente 1',
   },
   {
     id: 2,
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Feel%20Light%2C%20Confident%20%26%20Beautiful%20in%20Your%20Own%20Body%20Again%20%E2%9C%A8%EF%B8%8F%20%281%29-2F9nMgiamgQ6iK5PJTep0VGjEfL28A.jpg',
-    label: 'Cliente 02',
-    year: '2024',
+    name: 'Cliente 2',
   },
   {
     id: 3,
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%282%29%20%281%29-flyzuP4UGTSguyrTYyaA1XKjud6Lui.jpg',
-    label: 'Cliente 03',
-    year: '2023',
+    name: 'Cliente 3',
   },
   {
     id: 4,
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%281%29%20%281%29-5smxl0jVZ5slAaAh8b6Uqi7XJnwbyA.jpg',
-    label: 'Cliente 04',
-    year: '2023',
+    name: 'Cliente 4',
   },
 ]
 
@@ -53,120 +48,105 @@ const testimonials = [
 ]
 
 export function TransformationsSection() {
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = 400
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      })
-    }
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    const elements = sectionRef.current?.querySelectorAll('.scroll-reveal')
+    elements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="resultados" className="py-32">
-      {/* Editorial header */}
-      <div className="px-[5%] mb-16 max-w-[1400px] mx-auto reveal">
-        <h2 className="text-editorial-sm font-display uppercase">
-          <em className="text-accent-italic">Resultados</em> reales
-        </h2>
-      </div>
-
-      {/* Horizontal scroll photos - editorial style like Lando's helmets */}
-      <div className="relative mb-20">
-        {/* Scroll controls */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
-          <button
-            onClick={() => scroll('left')}
-            className="w-12 h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-        </div>
-        <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10">
-          <button
-            onClick={() => scroll('right')}
-            className="w-12 h-12 rounded-full bg-background/80 backdrop-blur border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-colors"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+    <section id="resultados" ref={sectionRef} className="py-24 px-[5%] bg-secondary/30">
+      <div className="max-w-[1200px] mx-auto">
+        {/* Header */}
+        <div className="mb-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-4 block">Resultados</span>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+            Transformaciones reales
+          </h2>
         </div>
 
-        {/* Photos container */}
-        <div 
-          ref={scrollRef}
-          className="horizontal-scroll px-[5%] gap-6"
-        >
+        {/* Photos Grid - 2 rows, 2 columns */}
+        <div className="grid grid-cols-2 gap-4 md:gap-6 mb-16">
           {transformations.map((item, index) => (
             <div
               key={item.id}
-              className="reveal image-hover"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 group"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative w-[300px] md:w-[350px] aspect-[3/4] rounded-lg overflow-hidden border border-border">
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border">
                 <Image
                   src={item.image}
-                  alt={item.label}
+                  alt={item.name}
                   fill
-                  className="object-cover"
-                  sizes="350px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 50vw, 300px"
                 />
-              </div>
-              <div className="mt-4 flex justify-between items-center">
-                <span className="text-sm text-foreground">{item.label}</span>
-                <span className="text-sm text-primary">{item.year}</span>
               </div>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Divider line */}
-      <div className="max-w-[1400px] mx-auto px-[5%] mb-20">
-        <div className="border-t border-border" />
-      </div>
+        {/* Divider */}
+        <div className="border-t border-border mb-16" />
 
-      {/* Testimonials - editorial style */}
-      <div className="px-[5%] max-w-[1400px] mx-auto">
-        <div className="mb-12 reveal">
-          <span className="text-[0.7rem] tracking-[0.2em] uppercase text-primary block mb-4">
-            Testimonios
-          </span>
-          <h3 className="text-editorial-sm font-display uppercase">
-            Lo que <em className="text-accent-italic">dicen</em>
+        {/* Testimonials Header */}
+        <div className="mb-8 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-4 block">Testimonios</span>
+          <h3 className="text-2xl font-display font-bold text-foreground">
+            Lo que dicen
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Testimonials - smaller text */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((testi, index) => (
             <div 
               key={index} 
-              className="reveal border-t border-border pt-8"
-              style={{ transitionDelay: `${index * 0.15}s` }}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 p-5 rounded-xl border border-border bg-background/50"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="flex items-center gap-1 text-primary text-xs mb-6">
+              <div className="flex items-center gap-1 text-primary text-[10px] mb-3">
                 {[...Array(5)].map((_, i) => (
                   <span key={i}>★</span>
                 ))}
               </div>
-              <p className="quote-editorial text-lg mb-8">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 &ldquo;{testi.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-sm font-semibold text-primary">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary">
                   {testi.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground">{testi.name}</p>
-                  <p className="text-xs text-muted-foreground">{testi.meta}</p>
+                  <p className="text-xs font-medium text-foreground">{testi.name}</p>
+                  <p className="text-[10px] text-muted-foreground">{testi.meta}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .scroll-reveal.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   )
 }

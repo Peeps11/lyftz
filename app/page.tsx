@@ -12,7 +12,7 @@ import { ParallaxBackground } from '@/components/parallax-background'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen text-foreground relative">
       <ParallaxBackground />
       <ScrollReveal />
       <Navbar />

@@ -46,7 +46,7 @@ export function HeroSection() {
         {/* Stats */}
         <div className="flex items-center justify-center gap-8 pt-8">
           <div className="text-center">
-            <p className="text-3xl font-bold text-primary">+50</p>
+            <p className="text-3xl font-bold text-primary">+100</p>
             <p className="text-sm text-muted-foreground">Clientes</p>
           </div>
           <div className="w-px h-12 bg-border" />
@@ -56,8 +56,8 @@ export function HeroSection() {
           </div>
           <div className="w-px h-12 bg-border" />
           <div className="text-center">
-            <p className="text-3xl font-bold">100%</p>
-            <p className="text-sm text-muted-foreground">Online</p>
+            <p className="text-3xl font-bold">24h</p>
+            <p className="text-sm text-muted-foreground">Soporte</p>
           </div>
         </div>
       </div>

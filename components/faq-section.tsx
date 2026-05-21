@@ -37,7 +37,7 @@ export function FAQSection() {
   }
 
   return (
-    <section id="faq" className="py-24 px-[5%] bg-background">
+    <section id="faq" className="py-24 px-[5%] bg-background/70 backdrop-blur-sm">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">

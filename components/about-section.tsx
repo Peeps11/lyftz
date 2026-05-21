@@ -22,7 +22,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section id="sobre-mi" className="py-24 px-[5%] bg-secondary">
+    <section id="sobre-mi" className="py-24 px-[5%] bg-secondary/80 backdrop-blur-sm">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
         {/* Image Side */}
         <div className="relative reveal">

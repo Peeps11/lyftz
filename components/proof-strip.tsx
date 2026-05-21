@@ -7,7 +7,7 @@ export function ProofStrip() {
   ]
 
   return (
-    <section className="bg-secondary border-y border-border py-10 px-[5%]">
+    <section className="bg-secondary/80 backdrop-blur-sm border-y border-border py-10 px-[5%]">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
           <div key={stat.label} className="text-center reveal">

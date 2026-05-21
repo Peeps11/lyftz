@@ -41,7 +41,7 @@ export function ContactSection() {
   ]
 
   return (
-    <section id="contacto" className="py-24 px-[5%] bg-secondary border-t border-border">
+    <section id="contacto" className="py-24 px-[5%] bg-secondary/80 backdrop-blur-sm border-t border-border">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
         {/* Left Content */}
         <div>

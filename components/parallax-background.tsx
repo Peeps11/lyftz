@@ -1,177 +1,61 @@
 'use client'
 
-import { useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment } from '@react-three/drei'
-import * as THREE from 'three'
+import Image from 'next/image'
 import { useParallax } from '@/hooks/use-parallax'
-
-function MultipowerMachine({ scrollY }: { scrollY: number }) {
-  const groupRef = useRef<THREE.Group>(null)
-  
-  useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = scrollY * 0.002
-      groupRef.current.rotation.x = Math.sin(scrollY * 0.001) * 0.15
-    }
-  })
-
-  const metalMaterial = new THREE.MeshStandardMaterial({
-    color: '#1a1a1a',
-    metalness: 0.9,
-    roughness: 0.3,
-  })
-
-  const chromeMaterial = new THREE.MeshStandardMaterial({
-    color: '#666666',
-    metalness: 1,
-    roughness: 0.1,
-  })
-
-  const accentMaterial = new THREE.MeshStandardMaterial({
-    color: '#00E5FF',
-    metalness: 0.8,
-    roughness: 0.2,
-    emissive: '#00E5FF',
-    emissiveIntensity: 0.4,
-  })
-
-  return (
-    <group ref={groupRef} position={[0, -0.5, 0]} scale={0.9}>
-      {/* Main vertical posts */}
-      <mesh position={[-2, 2, -1]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 5, 0.15]} />
-      </mesh>
-      <mesh position={[2, 2, -1]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 5, 0.15]} />
-      </mesh>
-      <mesh position={[-2, 2, 1]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 5, 0.15]} />
-      </mesh>
-      <mesh position={[2, 2, 1]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 5, 0.15]} />
-      </mesh>
-
-      {/* Top horizontal bars */}
-      <mesh position={[0, 4.5, -1]} material={metalMaterial}>
-        <boxGeometry args={[4.3, 0.15, 0.15]} />
-      </mesh>
-      <mesh position={[0, 4.5, 1]} material={metalMaterial}>
-        <boxGeometry args={[4.3, 0.15, 0.15]} />
-      </mesh>
-      <mesh position={[-2, 4.5, 0]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 0.15, 2.3]} />
-      </mesh>
-      <mesh position={[2, 4.5, 0]} material={metalMaterial}>
-        <boxGeometry args={[0.15, 0.15, 2.3]} />
-      </mesh>
-
-      {/* Smith machine bar */}
-      <mesh position={[0, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={chromeMaterial}>
-        <cylinderGeometry args={[0.04, 0.04, 4.5, 16]} />
-      </mesh>
-      
-      {/* Bar guides */}
-      <mesh position={[-2, 2.5, 0]} material={metalMaterial}>
-        <boxGeometry args={[0.1, 0.4, 0.1]} />
-      </mesh>
-      <mesh position={[2, 2.5, 0]} material={metalMaterial}>
-        <boxGeometry args={[0.1, 0.4, 0.1]} />
-      </mesh>
-
-      {/* Weight plates left */}
-      <mesh position={[-2.3, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.35, 0.35, 0.08, 32]} />
-      </mesh>
-      <mesh position={[-2.45, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.35, 0.35, 0.08, 32]} />
-      </mesh>
-      <mesh position={[-2.6, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.3, 0.3, 0.06, 32]} />
-      </mesh>
-
-      {/* Weight plates right */}
-      <mesh position={[2.3, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.35, 0.35, 0.08, 32]} />
-      </mesh>
-      <mesh position={[2.45, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.35, 0.35, 0.08, 32]} />
-      </mesh>
-      <mesh position={[2.6, 2.5, 0]} rotation={[0, 0, Math.PI / 2]} material={metalMaterial}>
-        <cylinderGeometry args={[0.3, 0.3, 0.06, 32]} />
-      </mesh>
-
-      {/* Safety bars with accent color */}
-      <mesh position={[0, 1.2, -0.8]} rotation={[0, 0, Math.PI / 2]} material={accentMaterial}>
-        <cylinderGeometry args={[0.03, 0.03, 4, 16]} />
-      </mesh>
-      <mesh position={[0, 1.2, 0.8]} rotation={[0, 0, Math.PI / 2]} material={accentMaterial}>
-        <cylinderGeometry args={[0.03, 0.03, 4, 16]} />
-      </mesh>
-
-      {/* Base platform */}
-      <mesh position={[0, -0.5, 0]} material={metalMaterial}>
-        <boxGeometry args={[5, 0.1, 3]} />
-      </mesh>
-
-      {/* Weight stack */}
-      {[...Array(8)].map((_, i) => (
-        <mesh key={i} position={[-3, 0.5 + i * 0.25, 0]} material={metalMaterial}>
-          <boxGeometry args={[0.6, 0.2, 0.8]} />
-        </mesh>
-      ))}
-
-      {/* Pulley */}
-      <mesh position={[-3, 4, 0]} rotation={[Math.PI / 2, 0, 0]} material={chromeMaterial}>
-        <cylinderGeometry args={[0.1, 0.1, 0.15, 16]} />
-      </mesh>
-    </group>
-  )
-}
-
-function Scene({ scrollY }: { scrollY: number }) {
-  return (
-    <>
-      <Environment preset="night" />
-      <ambientLight intensity={0.15} />
-      <spotLight
-        position={[5, 10, 5]}
-        angle={0.3}
-        penumbra={1}
-        intensity={1.2}
-        color="#ffffff"
-      />
-      <spotLight
-        position={[-5, 5, -5]}
-        angle={0.4}
-        penumbra={1}
-        intensity={0.6}
-        color="#00E5FF"
-      />
-      <pointLight position={[0, 5, 0]} intensity={0.4} color="#00E5FF" />
-      <MultipowerMachine scrollY={scrollY} />
-    </>
-  )
-}
 
 export function ParallaxBackground() {
   const scrollY = useParallax()
+  
+  // Calculate rotation based on scroll
+  const rotateY = scrollY * 0.015
+  const rotateX = Math.sin(scrollY * 0.001) * 8
+  const scale = 1 + Math.sin(scrollY * 0.0005) * 0.05
 
   return (
-    <div className="fixed inset-0 -z-10">
-      <Canvas
-        camera={{ position: [6, 3, 6], fov: 45 }}
-        gl={{ antialias: true, alpha: true }}
-        style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #0C0C0C 100%)' }}
-      >
-        <Scene scrollY={scrollY} />
-      </Canvas>
+    <div className="fixed inset-0 -z-10 overflow-hidden" style={{ perspective: '1500px' }}>
+      {/* Dark background */}
+      <div className="absolute inset-0 bg-[#0a0a0a]" />
       
-      {/* Overlay gradient */}
+      {/* 3D Rotating gym image */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ perspectiveOrigin: '50% 50%' }}
+      >
+        <div
+          style={{
+            transform: `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(${scale})`,
+            transformStyle: 'preserve-3d',
+            transition: 'transform 0.1s ease-out',
+            width: '140%',
+            height: '140%',
+          }}
+        >
+          <Image
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/vercel/share/v0-project/public/images/multipower-3d-y7ZGOc4ODzBvfUY29LfFxuvQdzq4o8.jpg"
+            alt="Multipower machine"
+            fill
+            className="object-cover"
+            style={{ 
+              filter: 'brightness(0.7) contrast(1.1) saturate(0.9)',
+            }}
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Subtle cyan glow overlay */}
       <div 
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.75) 100%)",
+          background: "radial-gradient(ellipse at center, rgba(0,229,255,0.03) 0%, transparent 70%)",
+        }}
+      />
+      
+      {/* Gradient overlay for text readability */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.2) 30%, rgba(10,10,10,0.4) 70%, rgba(10,10,10,0.7) 100%)",
         }}
       />
     </div>

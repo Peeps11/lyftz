@@ -60,7 +60,7 @@ export function TransformationsSection() {
   }
 
   return (
-    <section id="resultados" className="py-24 px-[5%] bg-secondary">
+    <section id="resultados" className="py-24 px-[5%] bg-secondary/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">

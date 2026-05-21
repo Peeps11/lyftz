@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border px-[5%] py-12">
+    <footer className="bg-background/70 backdrop-blur-sm border-t border-border px-[5%] py-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
         {/* Logo */}
         <Link href="#inicio" className="flex items-center">

@@ -36,7 +36,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="incluye" className="py-24 px-[5%] bg-background">
+    <section id="incluye" className="py-24 px-[5%] bg-background/70 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-12">
@@ -97,7 +97,7 @@ export function FeaturesSection() {
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
               </div>
-              <span className="text-[0.8rem] text-muted-foreground ml-2">4 libres de 10</span>
+              <span className="text-[0.8rem] text-muted-foreground ml-2">6/10</span>
             </div>
             <Link 
               href="#contacto"

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 const navLinks = [
   { href: '#sobre-mi', label: 'Sobre mí' },
@@ -23,77 +25,70 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] py-5 transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 backdrop-blur-md' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
     }`}>
-      {/* Logo - Editorial style */}
-      <Link href="#inicio" className="flex items-center">
-        <span className="text-2xl md:text-3xl font-display font-bold tracking-tight">
-          <span className="text-foreground">LYFT</span>
-          <span className="text-primary">Z</span>
-        </span>
-      </Link>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link href="#inicio" className="flex items-center">
+            <span className="text-xl md:text-2xl font-bold tracking-tight font-display">
+              <span className="text-foreground">LYFT</span>
+              <span className="text-primary">Z</span>
+            </span>
+          </Link>
 
-      {/* Desktop Nav Links - Minimal editorial style */}
-      <ul className="hidden lg:flex items-center gap-10 list-none">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <Link 
-              href={link.href}
-              className="text-muted-foreground text-xs tracking-[0.15em] uppercase no-underline hover:text-primary transition-colors"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      {/* CTA Button - Editorial pill style */}
-      <Link 
-        href="#contacto"
-        className="hidden lg:inline-flex bg-primary text-primary-foreground px-6 py-3 text-xs font-bold tracking-[0.12em] uppercase rounded-full hover:brightness-110 transition-all glow-effect"
-      >
-        Consulta gratuita
-      </Link>
-
-      {/* Mobile: CTA + Menu */}
-      <div className="lg:hidden flex items-center gap-4">
-        <Link 
-          href="#contacto"
-          className="bg-primary text-primary-foreground px-4 py-2 text-[0.7rem] font-bold tracking-[0.1em] uppercase rounded-full"
-        >
-          Consulta
-        </Link>
-        <button 
-          className="flex flex-col justify-center items-center gap-1.5 cursor-pointer bg-transparent border-none p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button>
-      </div>
-
-      {/* Mobile Menu - Full screen editorial */}
-      <div className={`fixed inset-0 bg-background z-40 lg:hidden flex flex-col justify-center items-center transition-all duration-500 ${
-        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}>
-        <ul className="flex flex-col items-center gap-8 list-none">
-          {navLinks.map((link, index) => (
-            <li key={link.href} style={{ transitionDelay: `${index * 0.1}s` }}>
-              <Link 
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
                 href={link.href}
-                className={`text-3xl md:text-4xl font-display font-bold uppercase text-foreground hover:text-primary transition-all ${
-                  isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
-            </li>
-          ))}
-        </ul>
+            ))}
+            <Link href="#contacto">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 glow-effect">
+                Consulta gratuita
+              </Button>
+            </Link>
+          </div>
+
+          {/* Mobile */}
+          <div className="flex md:hidden items-center gap-3">
+            <Link href="#contacto">
+              <Button size="sm" className="bg-primary text-primary-foreground text-xs">
+                Consulta
+              </Button>
+            </Link>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-foreground"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <div className="py-4 space-y-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-4 py-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

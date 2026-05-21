@@ -1,18 +1,17 @@
 import type { Metadata } from 'next'
-import { Oswald, Poppins } from 'next/font/google'
+import { Montserrat, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const poppins = Poppins({ 
+const inter = Inter({ 
   subsets: ["latin"],
-  variable: '--font-poppins',
-  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
 })
 
-const oswald = Oswald({ 
+const montserrat = Montserrat({ 
   subsets: ["latin"],
-  variable: '--font-oswald',
-  weight: ['500', '600', '700'],
+  variable: '--font-montserrat',
+  weight: ['500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -28,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className={`${poppins.variable} ${oswald.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

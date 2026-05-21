@@ -1,7 +1,26 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const aboutPhrases = [
+  'Llevo más de 7 años en este mundo, con certificaciones nacionales e internacionales tanto en preparación física como en dietética.',
+  'Yo mismo pasé años haciendo las cosas mal, siguiendo planes genéricos que prometían mucho y entregaban nada.',
+  'Cuando encontré la forma correcta de hacerlo — adaptada a mi vida, no a la de otro — todo cambió.',
+  'No voy a darte una dieta imposible ni un plan copiado de internet. Voy a diseñar contigo un método que quepa en tu vida real.',
+]
+
 export function AboutSection() {
+  const [currentPhrase, setCurrentPhrase] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhrase((prev) => (prev + 1) % aboutPhrases.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section id="sobre-mi" className="py-24 px-[5%] bg-secondary">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
@@ -25,18 +44,40 @@ export function AboutSection() {
           <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
             Sobre mí
           </span>
-          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
+          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-6 text-foreground">
             Yo también estuve<br />donde tú estás{' '}
             <em className="text-primary not-italic">ahora</em>
           </h2>
 
-          <p className="text-muted-foreground leading-[1.8] font-light mb-4">
-            Llevo más de 7 años en este mundo, con certificaciones nacionales e internacionales tanto en preparación física como en dietética. Pero la razón por la que hago esto no es el papel: <strong className="text-foreground font-medium">es porque yo mismo pasé años haciendo las cosas mal</strong>, siguiendo planes genéricos que prometían mucho y entregaban nada.
-          </p>
+          {/* Auto-rotating phrases */}
+          <div className="relative h-[120px] md:h-[100px] mb-6 overflow-hidden">
+            {aboutPhrases.map((phrase, index) => (
+              <p
+                key={index}
+                className={`absolute inset-0 text-muted-foreground leading-[1.8] font-light transition-all duration-700 ${
+                  index === currentPhrase 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4'
+                }`}
+              >
+                {phrase}
+              </p>
+            ))}
+          </div>
 
-          <p className="text-muted-foreground leading-[1.8] font-light mb-6">
-            Cuando encontré la forma correcta de hacerlo — adaptada a mi vida, no a la de otro — todo cambió. Y eso es exactamente lo que quiero para ti. No voy a darte una dieta imposible ni un plan copiado de internet. Voy a <strong className="text-foreground font-medium">diseñar contigo un método que quepa en tu vida real</strong>.
-          </p>
+          {/* Phrase indicators */}
+          <div className="flex gap-2 mb-6">
+            {aboutPhrases.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentPhrase(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentPhrase ? 'bg-primary w-6' : 'bg-muted-foreground/30'
+                }`}
+                aria-label={`Ver frase ${index + 1}`}
+              />
+            ))}
+          </div>
 
           <div className="pt-6 mt-6 border-t border-border text-[0.88rem] text-muted-foreground">
             ¿Mi historia te resuena?{' '}

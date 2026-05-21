@@ -48,7 +48,7 @@ export function Navbar() {
         ))}
       </ul>
 
-      {/* CTA Button */}
+      {/* CTA Button - Desktop */}
       <Link 
         href="#contacto"
         className="hidden md:inline-flex bg-primary text-primary-foreground px-5 py-2.5 text-[0.82rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 hover:-translate-y-[1px] transition-all"
@@ -56,16 +56,24 @@ export function Navbar() {
         Consulta gratuita
       </Link>
 
-      {/* Mobile Menu Button */}
-      <button 
-        className="md:hidden flex flex-col justify-center items-center gap-[5px] cursor-pointer bg-transparent border-none p-2"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-        <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-        <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-      </button>
+      {/* Mobile: CTA Button always visible + Menu Button */}
+      <div className="md:hidden flex items-center gap-3">
+        <Link 
+          href="#contacto"
+          className="bg-primary text-primary-foreground px-4 py-2 text-[0.75rem] font-bold tracking-[0.08em] uppercase no-underline rounded-[4px]"
+        >
+          Consulta gratuita
+        </Link>
+        <button 
+          className="flex flex-col justify-center items-center gap-[5px] cursor-pointer bg-transparent border-none p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -82,15 +90,6 @@ export function Navbar() {
                 </Link>
               </li>
             ))}
-            <li className="px-[5%] pt-4">
-              <Link 
-                href="#contacto"
-                className="block text-center bg-primary text-primary-foreground px-5 py-3 text-[0.85rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px]"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Consulta gratuita
-              </Link>
-            </li>
           </ul>
         </div>
       )}

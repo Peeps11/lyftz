@@ -1,33 +1,34 @@
 import Link from 'next/link'
+import { Phone, Utensils, Dumbbell, Smartphone, BarChart3, MessageCircle } from 'lucide-react'
 
 const features = [
   {
-    icon: '📞',
+    icon: Phone,
     title: 'Videollamada inicial',
     description: 'Antes de empezar, te conozco de verdad. Tus objetivos, tu historial, tu día a día. El punto de partida lo marcamos juntos.',
   },
   {
-    icon: '🥗',
+    icon: Utensils,
     title: 'Plan nutricional real',
     description: 'Adaptado a tus gustos, tus horarios y tu presupuesto. Come lo que te gusta. Sin alimentos raros. Sin pasar hambre.',
   },
   {
-    icon: '💪',
+    icon: Dumbbell,
     title: 'Plan de entrenamiento a medida',
     description: 'Diseñado para tu nivel, tu material disponible y tu tiempo real. Con o sin gimnasio. Con o sin mucho tiempo libre.',
   },
   {
-    icon: '📱',
+    icon: Smartphone,
     title: 'App propia de seguimiento',
     description: 'Tus rutinas, tus registros y los vídeos de los ejercicios siempre en el bolsillo. Sin hojas de Excel, sin líos.',
   },
   {
-    icon: '📊',
+    icon: BarChart3,
     title: 'Revisiones semanales',
     description: 'Analizamos tu progreso cada semana y ajustamos el plan. Por eso nunca te estancas: siempre vas hacia delante.',
   },
   {
-    icon: '💬',
+    icon: MessageCircle,
     title: 'Yo contigo cada día',
     description: 'Soporte diario por WhatsApp. Cualquier duda, ajuste o bajón motivacional — estoy ahí. No esperas al próximo entreno.',
   },
@@ -59,7 +60,7 @@ export function FeaturesSection() {
               className="card-hover reveal relative p-7 rounded-[10px] border border-border bg-card"
             >
               {/* Icon */}
-              <span className="text-[1.8rem] mb-4 block">{feature.icon}</span>
+              <feature.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
 
               {/* Content */}
               <h3 className="text-[1rem] font-semibold text-foreground mb-2">
@@ -79,7 +80,7 @@ export function FeaturesSection() {
               Solo acepto 10 clientes nuevos al mes
             </strong>
             <span className="text-[0.9rem] text-muted-foreground">
-              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 5 plazas.
+              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 4 plazas.
             </span>
           </div>
           <div className="flex flex-col gap-3">
@@ -90,13 +91,13 @@ export function FeaturesSection() {
                 <span className="w-3.5 h-3.5 rounded-full bg-primary" />
                 <span className="w-3.5 h-3.5 rounded-full bg-primary" />
                 <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
+                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
                 <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
               </div>
-              <span className="text-[0.8rem] text-muted-foreground ml-2">5 libres de 10</span>
+              <span className="text-[0.8rem] text-muted-foreground ml-2">4 libres de 10</span>
             </div>
             <Link 
               href="#contacto"

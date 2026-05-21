@@ -52,35 +52,34 @@ export function FAQSection() {
   }, [])
 
   return (
-    <section id="faq" ref={sectionRef} className="py-20 px-[5%] bg-background">
-      <div className="max-w-[900px] mx-auto">
-        {/* Header - smaller, consistent */}
-        <div className="mb-10 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
-          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-3 block">FAQ</span>
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
-            Preguntas frecuentes
+    <section id="faq" ref={sectionRef} className="py-24 px-[5%] bg-background">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight font-display mb-4">
+            PREGUNTAS <span className="text-primary">FRECUENTES</span>
           </h2>
         </div>
 
         {/* FAQ Grid - 2 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 border border-border rounded-lg p-4 cursor-pointer hover:border-primary/50 transition-colors"
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 border border-border rounded-xl p-6 cursor-pointer hover:border-primary/50 transition-colors bg-secondary/20"
               style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div className="flex justify-between items-start gap-3">
-                <h3 className="text-sm font-medium text-foreground">
+              <div className="flex justify-between items-start gap-4">
+                <h3 className="text-lg font-semibold text-foreground">
                   {faq.question}
                 </h3>
-                <span className={`text-primary text-lg font-light shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
+                <span className={`text-primary text-2xl font-light shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
                   +
                 </span>
               </div>
-              <div className={`text-xs text-muted-foreground leading-relaxed overflow-hidden transition-all duration-500 ${
-                openIndex === index ? 'max-h-32 opacity-100 mt-3' : 'max-h-0 opacity-0'
+              <div className={`text-base text-muted-foreground leading-relaxed overflow-hidden transition-all duration-500 ${
+                openIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
               }`}>
                 {faq.answer}
               </div>

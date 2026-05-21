@@ -23,24 +23,24 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] py-4 transition-all duration-300 border-b ${
-      isScrolled ? 'bg-[rgba(12,12,12,0.92)] backdrop-blur-[10px] border-border' : 'bg-transparent border-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] py-5 transition-all duration-300 ${
+      isScrolled ? 'bg-background/95 backdrop-blur-md' : 'bg-transparent'
     }`}>
-      {/* Logo */}
+      {/* Logo - Editorial style */}
       <Link href="#inicio" className="flex items-center">
-        <span className="text-xl md:text-2xl font-bold tracking-tight font-display">
+        <span className="text-2xl md:text-3xl font-display font-bold tracking-tight">
           <span className="text-foreground">LYFT</span>
           <span className="text-primary">Z</span>
         </span>
       </Link>
 
-      {/* Desktop Nav Links */}
-      <ul className="hidden md:flex items-center gap-8 list-none">
+      {/* Desktop Nav Links - Minimal editorial style */}
+      <ul className="hidden lg:flex items-center gap-10 list-none">
         {navLinks.map((link) => (
           <li key={link.href}>
             <Link 
               href={link.href}
-              className="text-muted-foreground text-[0.85rem] tracking-[0.08em] uppercase no-underline hover:text-foreground transition-colors"
+              className="text-muted-foreground text-xs tracking-[0.15em] uppercase no-underline hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
@@ -48,51 +48,53 @@ export function Navbar() {
         ))}
       </ul>
 
-      {/* CTA Button - Desktop */}
+      {/* CTA Button - Editorial pill style */}
       <Link 
         href="#contacto"
-        className="hidden md:inline-flex bg-primary text-primary-foreground px-5 py-2.5 text-[0.82rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 hover:-translate-y-[1px] transition-all"
+        className="hidden lg:inline-flex bg-primary text-primary-foreground px-6 py-3 text-xs font-bold tracking-[0.12em] uppercase rounded-full hover:brightness-110 transition-all glow-effect"
       >
         Consulta gratuita
       </Link>
 
-      {/* Mobile: CTA Button always visible + Menu Button */}
-      <div className="md:hidden flex items-center gap-3">
+      {/* Mobile: CTA + Menu */}
+      <div className="lg:hidden flex items-center gap-4">
         <Link 
           href="#contacto"
-          className="bg-primary text-primary-foreground px-4 py-2 text-[0.75rem] font-bold tracking-[0.08em] uppercase no-underline rounded-[4px]"
+          className="bg-primary text-primary-foreground px-4 py-2 text-[0.7rem] font-bold tracking-[0.1em] uppercase rounded-full"
         >
-          Consulta gratuita
+          Consulta
         </Link>
         <button 
-          className="flex flex-col justify-center items-center gap-[5px] cursor-pointer bg-transparent border-none p-2"
+          className="flex flex-col justify-center items-center gap-1.5 cursor-pointer bg-transparent border-none p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-[22px] h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-[2px] bg-foreground transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[rgba(12,12,12,0.98)] backdrop-blur-[10px] border-b border-border md:hidden">
-          <ul className="flex flex-col py-4 list-none">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link 
-                  href={link.href}
-                  className="block px-[5%] py-3 text-muted-foreground text-[0.9rem] tracking-[0.08em] uppercase no-underline hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Mobile Menu - Full screen editorial */}
+      <div className={`fixed inset-0 bg-background z-40 lg:hidden flex flex-col justify-center items-center transition-all duration-500 ${
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <ul className="flex flex-col items-center gap-8 list-none">
+          {navLinks.map((link, index) => (
+            <li key={link.href} style={{ transitionDelay: `${index * 0.1}s` }}>
+              <Link 
+                href={link.href}
+                className={`text-3xl md:text-4xl font-display font-bold uppercase text-foreground hover:text-primary transition-all ${
+                  isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   )
 }

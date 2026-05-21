@@ -1,111 +1,102 @@
+'use client'
+
 import Link from 'next/link'
-import { Phone, Utensils, Dumbbell, Smartphone, BarChart3, MessageCircle } from 'lucide-react'
+import { Phone, Utensils, Dumbbell, Smartphone, BarChart3, MessageCircle, ArrowRight } from 'lucide-react'
 
 const features = [
   {
     icon: Phone,
     title: 'Videollamada inicial',
-    description: 'Antes de empezar, te conozco de verdad. Tus objetivos, tu historial, tu día a día. El punto de partida lo marcamos juntos.',
+    description: 'Antes de empezar, te conozco de verdad. Tus objetivos, tu historial, tu día a día.',
   },
   {
     icon: Utensils,
     title: 'Plan nutricional real',
-    description: 'Adaptado a tus gustos, tus horarios y tu presupuesto. Come lo que te gusta. Sin alimentos raros. Sin pasar hambre.',
+    description: 'Adaptado a tus gustos, tus horarios y tu presupuesto. Sin alimentos raros.',
   },
   {
     icon: Dumbbell,
-    title: 'Plan de entrenamiento a medida',
-    description: 'Diseñado para tu nivel, tu material disponible y tu tiempo real. Con o sin gimnasio. Con o sin mucho tiempo libre.',
+    title: 'Entrenamiento a medida',
+    description: 'Diseñado para tu nivel, tu material disponible y tu tiempo real.',
   },
   {
     icon: Smartphone,
-    title: 'App propia de seguimiento',
-    description: 'Tus rutinas, tus registros y los vídeos de los ejercicios siempre en el bolsillo. Sin hojas de Excel, sin líos.',
+    title: 'App de seguimiento',
+    description: 'Tus rutinas, registros y vídeos siempre en el bolsillo.',
   },
   {
     icon: BarChart3,
     title: 'Revisiones semanales',
-    description: 'Analizamos tu progreso cada semana y ajustamos el plan. Por eso nunca te estancas: siempre vas hacia delante.',
+    description: 'Analizamos tu progreso cada semana y ajustamos el plan.',
   },
   {
     icon: MessageCircle,
-    title: 'Yo contigo cada día',
-    description: 'Soporte diario por WhatsApp. Cualquier duda, ajuste o bajón motivacional — estoy ahí. No esperas al próximo entreno.',
+    title: 'Soporte diario',
+    description: 'WhatsApp directo conmigo. Cualquier duda, estoy ahí.',
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="incluye" className="py-24 px-[5%] bg-background/70 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="mb-12">
-          <span className="text-[0.72rem] tracking-[0.2em] uppercase text-primary mb-3 block">
-            Qué incluye
-          </span>
-          <h2 className="font-display text-[clamp(2.2rem,3.5vw,3.5rem)] tracking-[0.03em] leading-[1.05] mb-4 text-foreground">
-            Todo lo que necesitas<br />para{' '}
-            <em className="text-primary not-italic">no fallar esta vez</em>
+    <section id="incluye" className="py-32 px-[5%]">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Editorial header */}
+        <div className="mb-20 reveal">
+          <h2 className="text-editorial-sm font-display uppercase mb-8">
+            Todo lo que<br />
+            <em className="text-accent-italic">necesitas</em>
           </h2>
-          <p className="text-muted-foreground max-w-[540px] leading-[1.7] font-light">
+          <p className="text-muted-foreground max-w-[500px] text-lg leading-relaxed">
             No solo un plan. Un sistema completo con el apoyo diario que hace que la gente llegue al final.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Horizontal scroll features on mobile, grid on desktop */}
+        <div className="horizontal-scroll lg:grid lg:grid-cols-3 lg:gap-8 mb-20">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="card-hover reveal relative p-7 rounded-[10px] border border-border bg-card"
+              className="reveal min-w-[280px] lg:min-w-0 group"
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              {/* Icon */}
-              <feature.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
-
-              {/* Content */}
-              <h3 className="text-[1rem] font-semibold text-foreground mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-[0.88rem] text-muted-foreground leading-[1.7] font-light">
-                {feature.description}
-              </p>
+              <div className="border-t border-border pt-6 h-full">
+                <feature.icon className="w-6 h-6 text-primary mb-6" strokeWidth={1.5} />
+                <h3 className="text-xl font-display font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Urgency Banner */}
-        <div className="reveal bg-[rgba(0,229,255,0.15)] border border-[rgba(0,229,255,0.3)] rounded-[10px] p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <strong className="font-display text-[1.6rem] tracking-[0.05em] text-primary block">
-              Solo acepto 10 clientes nuevos al mes
-            </strong>
-            <span className="text-[0.9rem] text-muted-foreground">
-              Para garantizar la atención que mereces, limito mi disponibilidad. Actualmente quedan 4 plazas.
-            </span>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <div className="flex gap-2">
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-primary" />
-                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
-                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
-                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
-                <span className="w-3.5 h-3.5 rounded-full bg-muted border border-[rgba(0,229,255,0.3)]" />
-              </div>
-              <span className="text-[0.8rem] text-muted-foreground ml-2">6/10</span>
+        {/* CTA Banner - editorial style */}
+        <div className="reveal relative overflow-hidden">
+          <div className="bg-primary text-primary-foreground p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <span className="text-[0.7rem] tracking-[0.2em] uppercase opacity-70 mb-2 block">
+                Plazas limitadas
+              </span>
+              <h3 className="text-2xl md:text-3xl font-display font-bold mb-2">
+                Solo acepto 10 clientes al mes
+              </h3>
+              <p className="opacity-80 text-sm">
+                Para garantizar la atención que mereces. Actualmente: 6/10 ocupadas.
+              </p>
             </div>
             <Link 
               href="#contacto"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 text-[0.85rem] font-bold tracking-[0.1em] uppercase no-underline rounded-[4px] hover:brightness-110 transition-all whitespace-nowrap"
+              className="glow-effect inline-flex items-center gap-3 bg-background text-foreground px-8 py-4 text-sm font-bold tracking-[0.1em] uppercase rounded-[4px] group shrink-0"
             >
-              Reservar mi plaza →
+              Reservar plaza
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
+          
+          {/* Decorative elements */}
+          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-black/10 to-transparent pointer-events-none" />
         </div>
       </div>
     </section>

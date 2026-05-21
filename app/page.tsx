@@ -8,12 +8,10 @@ import { FAQSection } from '@/components/faq-section'
 import { ContactSection } from '@/components/contact-section'
 import { Footer } from '@/components/footer'
 import { ScrollReveal } from '@/components/scroll-reveal'
-import { ParallaxBackground } from '@/components/parallax-background'
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen text-foreground relative">
-      <ParallaxBackground />
+    <main className="min-h-screen bg-background text-foreground wave-pattern">
       <ScrollReveal />
       <Navbar />
       <HeroSection />

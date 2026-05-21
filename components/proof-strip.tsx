@@ -1,22 +1,18 @@
 export function ProofStrip() {
-  const stats = [
-    { num: '+50', label: 'Clientes transformados' },
-    { num: '7+', label: 'Años de experiencia' },
-    { num: '100%', label: 'Personalizado para ti' },
-    { num: '24h', label: 'Soporte diario por WhatsApp' },
-  ]
-
   return (
-    <section className="bg-secondary/80 backdrop-blur-sm border-y border-border py-10 px-[5%]">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat) => (
-          <div key={stat.label} className="text-center reveal">
-            <p className="font-display text-[2.8rem] tracking-[0.04em] text-primary leading-none">
-              {stat.num}
-            </p>
-            <p className="text-[0.78rem] text-muted-foreground uppercase tracking-[0.1em] mt-1">
-              {stat.label}
-            </p>
+    <section className="py-6 px-[5%] border-y border-border overflow-hidden">
+      {/* Marquee effect */}
+      <div className="flex animate-marquee whitespace-nowrap">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="flex items-center gap-16 mx-8">
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">+50 Clientes</span>
+            <span className="text-primary">●</span>
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">7+ Años experiencia</span>
+            <span className="text-primary">●</span>
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">100% Personalizado</span>
+            <span className="text-primary">●</span>
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">Soporte 24h</span>
+            <span className="text-primary">●</span>
           </div>
         ))}
       </div>

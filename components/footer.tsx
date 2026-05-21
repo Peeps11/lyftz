@@ -2,38 +2,39 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="bg-background/70 backdrop-blur-sm border-t border-border px-[5%] py-12">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 flex-wrap">
-        {/* Logo */}
-        <Link href="#inicio" className="flex items-center">
-          <span className="text-xl font-bold tracking-tight font-display">
-            <span className="text-foreground">LYFT</span>
-            <span className="text-primary">Z</span>
-          </span>
-        </Link>
-
-        {/* Legal Links */}
-        <div className="flex items-center gap-6 flex-wrap">
-          <Link 
-            href="/politica-privacidad" 
-            className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
-          >
-            Política de privacidad
-          </Link>
-          <Link 
-            href="/terminos-condiciones" 
-            className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
-          >
-            Términos y condiciones
+    <footer className="py-20 px-[5%] border-t border-border">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Large editorial logo */}
+        <div className="mb-16">
+          <Link href="#inicio" className="inline-block">
+            <span className="text-6xl md:text-8xl font-display font-bold tracking-tight">
+              <span className="text-foreground">LYFT</span>
+              <span className="text-primary">Z</span>
+            </span>
           </Link>
         </div>
-      </div>
 
-      {/* Copyright */}
-      <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-border text-center">
-        <p className="text-[0.75rem] text-[#555550]">
-          © 2026 LYFTZ. Todos los derechos reservados.
-        </p>
+        {/* Bottom row */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pt-8 border-t border-border">
+          <p className="text-xs text-muted-foreground tracking-wider uppercase">
+            © 2026 LYFTZ. Todos los derechos reservados.
+          </p>
+          
+          <div className="flex items-center gap-8">
+            <Link 
+              href="/politica-privacidad" 
+              className="text-xs text-muted-foreground tracking-wider uppercase hover:text-primary transition-colors"
+            >
+              Privacidad
+            </Link>
+            <Link 
+              href="/terminos-condiciones" 
+              className="text-xs text-muted-foreground tracking-wider uppercase hover:text-primary transition-colors"
+            >
+              Términos
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

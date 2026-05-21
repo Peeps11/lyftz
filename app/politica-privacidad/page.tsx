@@ -38,10 +38,9 @@ export default function PoliticaPrivacidadPage() {
               informamos de que:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Responsable:</strong> [TU NOMBRE COMPLETO O RAZÓN SOCIAL]</li>
-              <li><strong className="text-foreground">NIF/DNI:</strong> [TU NIF]</li>
-              <li><strong className="text-foreground">Domicilio:</strong> [TU DIRECCIÓN COMPLETA]</li>
-              <li><strong className="text-foreground">Correo electrónico:</strong> [TU EMAIL]</li>
+              <li><strong className="text-foreground">Responsable:</strong> LYFTZ.LTD</li>
+              <li><strong className="text-foreground">Domicilio:</strong> Ephesou, 9, Paralimni, 5280, Famagusta, Chipre</li>
+              <li><strong className="text-foreground">Correo electrónico:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Sitio web:</strong> www.lyftz.fit</li>
             </ul>
           </section>
@@ -208,7 +207,7 @@ export default function PoliticaPrivacidadPage() {
                 del tratamiento previo.</li>
             </ul>
             <p>
-              Para ejercer estos derechos, puedes contactarnos en [TU EMAIL], indicando el derecho 
+              Para ejercer estos derechos, puedes contactarnos en nutritionbadia@gmail.com, indicando el derecho 
               que deseas ejercer y acompañando copia de tu DNI o documento identificativo.
             </p>
             <p>
@@ -260,7 +259,7 @@ export default function PoliticaPrivacidadPage() {
               de tus datos personales, puedes contactarnos en:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Email:</strong> [TU EMAIL]</li>
+              <li><strong className="text-foreground">Email:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Formulario web:</strong> www.lyftz.fit/#contacto</li>
             </ul>
           </section>

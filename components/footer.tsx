@@ -26,43 +26,6 @@ export function Footer() {
           >
             Términos y condiciones
           </Link>
-          <Link 
-            href="#contacto" 
-            className="text-[0.78rem] text-[#555550] no-underline tracking-[0.06em] uppercase hover:text-muted-foreground transition-colors"
-          >
-            Contacto
-          </Link>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex items-center gap-4">
-          <a
-            href="https://instagram.com/lyftz.fit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
-            aria-label="Instagram"
-          >
-            IG
-          </a>
-          <a
-            href="https://tiktok.com/@lyftz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
-            aria-label="TikTok"
-          >
-            TK
-          </a>
-          <a
-            href="https://youtube.com/@lyftz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground text-[0.8rem] hover:border-primary hover:text-primary transition-all"
-            aria-label="YouTube"
-          >
-            YT
-          </a>
         </div>
       </div>
 

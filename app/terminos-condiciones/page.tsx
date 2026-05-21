@@ -3,7 +3,7 @@ import { ArrowLeft } from 'lucide-react'
 
 export const metadata = {
   title: 'Términos y Condiciones | LYFTZ',
-  description: 'Términos y condiciones de uso de LYFTZ - Coaching online de fitness y nutrición',
+  description: 'Términos y condiciones de uso de los servicios de LYFTZ',
 }
 
 export default function TerminosCondicionesPage() {
@@ -37,10 +37,9 @@ export default function TerminosCondicionesPage() {
               web y los servicios asociados son titularidad de:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Nombre/Razón social:</strong> [TU NOMBRE COMPLETO O RAZÓN SOCIAL]</li>
-              <li><strong className="text-foreground">NIF/DNI:</strong> [TU NIF]</li>
-              <li><strong className="text-foreground">Domicilio:</strong> [TU DIRECCIÓN COMPLETA]</li>
-              <li><strong className="text-foreground">Correo electrónico de contacto:</strong> [TU EMAIL]</li>
+              <li><strong className="text-foreground">Nombre/Razón social:</strong> LYFTZ.LTD</li>
+              <li><strong className="text-foreground">Domicilio:</strong> Ephesou, 9, Paralimni, 5280, Famagusta, Chipre</li>
+              <li><strong className="text-foreground">Correo electrónico de contacto:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Sitio web:</strong> www.lyftz.fit</li>
             </ul>
           </section>
@@ -248,13 +247,13 @@ export default function TerminosCondicionesPage() {
               de Datos Personales y garantía de los derechos digitales (LOPDGDD), informamos de que:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Responsable del tratamiento:</strong> [TU NOMBRE O RAZÓN SOCIAL], con NIF [TU NIF].</li>
+              <li><strong className="text-foreground">Responsable del tratamiento:</strong> LYFTZ, LTD.</li>
               <li><strong className="text-foreground">Finalidad:</strong> Gestión de la relación contractual, prestación de los 
                 servicios contratados, y envío de comunicaciones relacionadas con el servicio.</li>
               <li><strong className="text-foreground">Legitimación:</strong> Ejecución del contrato y consentimiento del interesado.</li>
               <li><strong className="text-foreground">Destinatarios:</strong> Los datos no serán cedidos a terceros salvo obligación legal.</li>
               <li><strong className="text-foreground">Derechos:</strong> Puedes ejercer tus derechos de acceso, rectificación, supresión, 
-                oposición, limitación y portabilidad escribiendo a [TU EMAIL].</li>
+                oposición, limitación y portabilidad escribiendo a nutritionbadia@gmail.com.</li>
               <li><strong className="text-foreground">Información completa:</strong> Para más detalles, consulta nuestra{' '}
                 <Link href="/politica-privacidad" className="text-primary hover:underline">Política de Privacidad</Link>.</li>
             </ul>
@@ -294,7 +293,7 @@ export default function TerminosCondicionesPage() {
             <p>
               Para la resolución de cualquier controversia derivada de la interpretación, cumplimiento o 
               ejecución de estos términos, las partes se someten, con renuncia expresa a cualquier otro 
-              fuero que pudiera corresponderles, a los Juzgados y Tribunales de <strong className="text-foreground">[TU CIUDAD]</strong>.
+              fuero que pudiera corresponderles, a los Juzgados y Tribunales de <strong className="text-foreground">Barcelona</strong>.
             </p>
             <p>
               Sin perjuicio de lo anterior, si el cliente tiene la condición de consumidor, será de 
@@ -310,7 +309,7 @@ export default function TerminosCondicionesPage() {
               términos y condiciones, puedes contactarnos a través de:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Email:</strong> [TU EMAIL]</li>
+              <li><strong className="text-foreground">Email:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Formulario web:</strong> www.lyftz.fit/#contacto</li>
             </ul>
           </section>

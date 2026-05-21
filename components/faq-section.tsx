@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const faqs = [
   {
@@ -31,56 +31,70 @@ const faqs = [
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    const elements = sectionRef.current?.querySelectorAll('.scroll-reveal')
+    elements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="faq" className="py-32 px-[5%]">
-      <div className="max-w-[1400px] mx-auto">
-        {/* Editorial header */}
-        <div className="mb-20 reveal">
-          <h2 className="text-editorial-sm font-display uppercase mb-8">
-            Preguntas<br />
-            <em className="text-accent-italic">frecuentes</em>
+    <section id="faq" ref={sectionRef} className="py-20 px-[5%] bg-background">
+      <div className="max-w-[900px] mx-auto">
+        {/* Header - smaller, consistent */}
+        <div className="mb-10 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-3 block">FAQ</span>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+            Preguntas frecuentes
           </h2>
         </div>
 
-        {/* FAQ List - Editorial style with big numbers */}
-        <div className="space-y-0">
+        {/* FAQ Grid - 2 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className="reveal border-t border-border py-8 cursor-pointer group"
-              style={{ transitionDelay: `${index * 0.05}s` }}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 border border-border rounded-lg p-4 cursor-pointer hover:border-primary/50 transition-colors"
+              style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <div className="flex gap-8 items-start">
-                {/* Number */}
-                <span className="text-4xl md:text-5xl font-display font-bold text-muted-foreground/30 group-hover:text-primary/50 transition-colors w-16 shrink-0">
-                  {String(index + 1).padStart(2, '0')}
+              <div className="flex justify-between items-start gap-3">
+                <h3 className="text-sm font-medium text-foreground">
+                  {faq.question}
+                </h3>
+                <span className={`text-primary text-lg font-light shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
+                  +
                 </span>
-                
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex justify-between items-start gap-4">
-                    <h3 className="text-lg md:text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {faq.question}
-                    </h3>
-                    <span className={`text-primary text-2xl font-light shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
-                      +
-                    </span>
-                  </div>
-                  <div className={`text-muted-foreground leading-relaxed overflow-hidden transition-all duration-500 ${
-                    openIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
-                  }`}>
-                    {faq.answer}
-                  </div>
-                </div>
+              </div>
+              <div className={`text-xs text-muted-foreground leading-relaxed overflow-hidden transition-all duration-500 ${
+                openIndex === index ? 'max-h-32 opacity-100 mt-3' : 'max-h-0 opacity-0'
+              }`}>
+                {faq.answer}
               </div>
             </div>
           ))}
-          {/* Bottom border */}
-          <div className="border-t border-border" />
         </div>
       </div>
+
+      <style jsx>{`
+        .scroll-reveal.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   )
 }

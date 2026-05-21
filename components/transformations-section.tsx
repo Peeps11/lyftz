@@ -69,31 +69,31 @@ export function TransformationsSection() {
   }, [])
 
   return (
-    <section id="resultados" ref={sectionRef} className="py-24 px-[5%] bg-secondary/30">
-      <div className="max-w-[1200px] mx-auto">
+    <section id="resultados" ref={sectionRef} className="py-20 px-[5%] bg-secondary/30">
+      <div className="max-w-[900px] mx-auto">
         {/* Header */}
-        <div className="mb-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
-          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-4 block">Resultados</span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+        <div className="mb-10 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-3 block">Resultados</span>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
             Transformaciones reales
           </h2>
         </div>
 
-        {/* Photos Grid - 2 rows, 2 columns */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6 mb-16">
+        {/* Photos Grid - 2 rows, 2 columns - SMALLER */}
+        <div className="grid grid-cols-2 gap-3 md:gap-4 mb-12">
           {transformations.map((item, index) => (
             <div
               key={item.id}
               className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 group"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden border border-border">
+              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-border max-w-[200px] mx-auto">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 300px"
+                  sizes="(max-width: 768px) 45vw, 200px"
                 />
               </div>
             </div>
@@ -101,39 +101,39 @@ export function TransformationsSection() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-border mb-16" />
+        <div className="border-t border-border mb-12" />
 
         {/* Testimonials Header */}
-        <div className="mb-8 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
-          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-4 block">Testimonios</span>
-          <h3 className="text-2xl font-display font-bold text-foreground">
+        <div className="mb-6 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span className="text-xs tracking-[0.2em] uppercase text-primary mb-3 block">Testimonios</span>
+          <h3 className="text-xl font-display font-bold text-foreground">
             Lo que dicen
           </h3>
         </div>
 
-        {/* Testimonials - smaller text */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Testimonials - SMALLER text */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((testi, index) => (
             <div 
               key={index} 
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 p-5 rounded-xl border border-border bg-background/50"
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 p-4 rounded-lg border border-border bg-background/50"
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="flex items-center gap-1 text-primary text-[10px] mb-3">
+              <div className="flex items-center gap-0.5 text-primary text-[8px] mb-2">
                 {[...Array(5)].map((_, i) => (
                   <span key={i}>★</span>
                 ))}
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              <p className="text-xs text-muted-foreground leading-relaxed mb-3">
                 &ldquo;{testi.quote}&rdquo;
               </p>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-xs font-semibold text-primary">
+                <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-[10px] font-semibold text-primary">
                   {testi.initials}
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-foreground">{testi.name}</p>
-                  <p className="text-[10px] text-muted-foreground">{testi.meta}</p>
+                  <p className="text-[10px] font-medium text-foreground">{testi.name}</p>
+                  <p className="text-[9px] text-muted-foreground">{testi.meta}</p>
                 </div>
               </div>
             </div>

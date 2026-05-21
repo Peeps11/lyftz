@@ -18,7 +18,7 @@ export function ParallaxBackground() {
       <div
         className="absolute inset-[-10%] w-[120%] h-[120%]"
         style={{
-          backgroundImage: "url('/images/multipower-bg.jpg')",
+          backgroundImage: "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/vercel/share/v0-project/public/images/multipower-bg-8ma0DoYqc9bcj8mvqvTfBVW8JcyQkg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           transform: `translateY(${translateY}px) scale(${scale}) rotate(${rotate}deg)`,

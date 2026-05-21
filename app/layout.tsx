@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import { Syne, Inter } from 'next/font/google'
+import { Oswald, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const poppins = Poppins({ 
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const syne = Syne({ 
+const oswald = Oswald({ 
   subsets: ["latin"],
-  variable: '--font-syne',
-  weight: ['700', '800'],
+  variable: '--font-oswald',
+  weight: ['500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className={`${inter.variable} ${syne.variable} font-sans antialiased`}>
+      <body className={`${poppins.variable} ${oswald.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

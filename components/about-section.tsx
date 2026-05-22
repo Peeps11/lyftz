@@ -28,18 +28,19 @@ export function AboutSection() {
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Llevo más de <strong className="text-foreground">7 años</strong> en este mundo, 
-                con certificaciones nacionales e internacionales tanto en preparación física 
-                como en dietética.
+                con certificaciones nacionales e internacionales en preparación física y dietética.
               </p>
               <p>
-                Yo mismo pasé años haciendo las cosas mal, siguiendo planes genéricos 
-                que prometían mucho y entregaban nada. Cuando encontré la forma correcta 
-                de hacerlo — <strong className="text-foreground">adaptada a mi vida, no a la de otro</strong> — 
-                todo cambió.
+                Pero hubo un tiempo en que yo era el primero en hacerlo mal. Cardio en ayunas a las 6 de la mañana, 
+                pollo con arroz cinco veces al día, planes de Instagram que prometían resultados en 30 días. 
+                <strong className="text-foreground"> Agotado, sin progresar</strong>, preguntándome qué estaba haciendo mal.
               </p>
               <p>
-                No voy a darte una dieta imposible ni un plan copiado de internet. 
-                Voy a diseñar contigo un método que quepa en tu vida real.
+                El problema no era mi esfuerzo. Era que esos planes no eran míos.
+              </p>
+              <p>
+                Cuando aprendí a adaptar el método a mi vida real, no a la de un atleta profesional, todo cambió. 
+                <strong className="text-foreground">Eso es exactamente lo que hago contigo.</strong>
               </p>
             </div>
 

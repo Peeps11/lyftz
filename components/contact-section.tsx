@@ -46,7 +46,7 @@ export function ContactSection() {
   ]
 
   const inversiones = [
-    { label: 'Sí, estoy listo para invertir en mi cambio', value: 'si' },
+    { label: 'Sí, estoy listo/a para invertir en mi cambio', value: 'si' },
     { label: 'Prefiero más información primero', value: 'info' },
   ]
 

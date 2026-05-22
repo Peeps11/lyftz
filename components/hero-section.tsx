@@ -13,7 +13,7 @@ export function HeroSection() {
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-dot" />
           <span className="text-sm text-muted-foreground">Plazas limitadas</span>
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-dot" />
-          <span className="text-sm text-muted-foreground">Solo 5 disponibles</span>
+          <span className="text-sm text-muted-foreground">Solo 3 disponibles</span>
         </div>
 
         {/* Headline */}

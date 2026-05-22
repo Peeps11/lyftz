@@ -39,7 +39,9 @@ export function AboutSection() {
                 El problema no era mi esfuerzo. Era que esos planes no eran míos.
               </p>
               <p>
-                Cuando aprendí a adaptar el método a mi vida real, no a la de un atleta profesional, todo cambió. 
+                Cuando aprendí a adaptar el método a mi vida real, no a la de un atleta profesional, todo cambió.
+              </p>
+              <p>
                 <strong className="text-foreground">Eso es exactamente lo que hago contigo.</strong>
               </p>
             </div>

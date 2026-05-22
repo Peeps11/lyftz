@@ -28,22 +28,22 @@ const transformations = [
 
 const testimonials = [
   {
-    initials: 'MG',
-    quote: "En 4 meses bajé 12 kg sin pasar hambre y sin dejar de comer con mi familia los fines de semana.",
-    name: "María G.",
-    meta: "32 años",
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
+    quote: "En 4 meses baje 12 kg sin pasar hambre y sin dejar de comer con mi familia los fines de semana.",
+    name: "Maria Garcia",
+    meta: "32 anos - Perdio 12 kg",
   },
   {
-    initials: 'CL',
-    quote: "Badia me diseñó un plan de 3 días a la semana y en 6 meses cambié más que en 2 años yendo al gym por mi cuenta.",
-    name: "Carlos L.",
-    meta: "38 años",
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
+    quote: "Badia me diseno un plan de 3 dias a la semana y en 6 meses cambie mas que en 2 anos yendo al gym por mi cuenta.",
+    name: "Carlos Lopez",
+    meta: "38 anos - Gano 8 kg musculo",
   },
   {
-    initials: 'AL',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
     quote: "Cuando tienes una duda a las 8 de la noche y recibes respuesta en minutos, eso marca la diferencia.",
-    name: "Ana L.",
-    meta: "27 años",
+    name: "Ana Martinez",
+    meta: "27 anos - Perdio 9 kg",
   },
 ]
 
@@ -130,8 +130,14 @@ export function TransformationsSection() {
                 &ldquo;{testi.quote}&rdquo;
               </p>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-lg font-semibold text-primary">
-                  {testi.initials}
+                <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/30">
+                  <Image 
+                    src={testi.image} 
+                    alt={testi.name}
+                    width={48}
+                    height={48}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <div>
                   <p className="text-base font-medium text-foreground">{testi.name}</p>

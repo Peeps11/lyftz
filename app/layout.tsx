@@ -16,8 +16,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'LYFTZ | Coaching Online que Funciona de Verdad',
-  description: 'Coaching online personalizado de entrenamiento y nutricion. Mas de 50 personas transformadas con ciencia y seguimiento diario. Videollamada inicial gratuita.',
-  keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado'],
+  description: 'Coaching de entrenamiento y nutricion para personas con poco tiempo y muchos intentos fallidos. Metodo personalizado con seguimiento diario. +100 clientes transformados.',
+  keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado', 'online'],
 }
 
 export default function RootLayout({

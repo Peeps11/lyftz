@@ -93,19 +93,9 @@ export function FeaturesSection() {
 
         {/* Plazas limitadas - sutil, integrado */}
         <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-xl border border-border bg-secondary/20">
-          <div className="flex items-center gap-4">
-            <div className="flex gap-1">
-              {[...Array(10)].map((_, i) => (
-                <span 
-                  key={i} 
-                  className={`w-2.5 h-2.5 rounded-full ${i < 6 ? 'bg-primary' : 'bg-muted border border-border'}`} 
-                />
-              ))}
-            </div>
-            <div>
-              <p className="text-sm font-medium text-foreground">6/10 plazas ocupadas</p>
-              <p className="text-xs text-muted-foreground">Solo acepto 10 clientes al mes</p>
-            </div>
+          <div>
+            <p className="text-sm font-medium text-foreground">Maximo 10 clientes activos al mes</p>
+            <p className="text-xs text-muted-foreground">Para garantizar atencion personalizada real</p>
           </div>
           <Link 
             href="#contacto"

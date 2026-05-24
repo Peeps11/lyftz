@@ -18,7 +18,7 @@ export function AboutSection() {
               className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/35" />
+            <div className="absolute inset-0 bg-black/5" />
           </div>
 
           {/* Content */}

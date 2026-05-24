@@ -28,22 +28,13 @@ const transformations = [
 
 const testimonials = [
   {
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face',
     quote: "En 4 meses baje 12 kg sin pasar hambre y sin dejar de comer con mi familia los fines de semana.",
-    name: "Maria Garcia",
-    meta: "32 anos - Perdio 12 kg",
   },
   {
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face',
     quote: "Badia me diseno un plan de 3 dias a la semana y en 6 meses cambie mas que en 2 anos yendo al gym por mi cuenta.",
-    name: "Carlos Lopez",
-    meta: "38 anos - Gano 8 kg musculo",
   },
   {
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face',
     quote: "Cuando tienes una duda a las 8 de la noche y recibes respuesta en minutos, eso marca la diferencia.",
-    name: "Ana Martinez",
-    meta: "27 anos - Perdio 9 kg",
   },
 ]
 
@@ -126,24 +117,9 @@ export function TransformationsSection() {
                   <span key={i}>★</span>
                 ))}
               </div>
-              <p className="text-lg text-foreground leading-relaxed mb-6">
+              <p className="text-lg text-foreground leading-relaxed">
                 &ldquo;{testi.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/30">
-                  <Image 
-                    src={testi.image} 
-                    alt={testi.name}
-                    width={48}
-                    height={48}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div>
-                  <p className="text-base font-medium text-foreground">{testi.name}</p>
-                  <p className="text-sm text-muted-foreground">{testi.meta}</p>
-                </div>
-              </div>
             </div>
           ))}
         </div>

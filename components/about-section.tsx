@@ -17,8 +17,6 @@ export function AboutSection() {
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/5" />
           </div>
 
           {/* Content */}
@@ -52,7 +50,7 @@ export function AboutSection() {
             <div className="pt-4 flex items-center gap-4">
               <div>
                 <span className="block text-foreground font-bold text-lg">Badia</span>
-                <span className="text-sm text-muted-foreground">NSCA-CPT / Dietista</span>
+                <span className="text-sm text-muted-foreground">Preparador físico | Dietista</span>
               </div>
               <Link href="#contacto" className="ml-auto text-primary hover:underline text-sm">
                 Hablemos →

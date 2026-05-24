@@ -34,7 +34,7 @@ export function Navbar() {
           <Link href="#inicio" className="flex items-center">
             <span className="text-xl md:text-2xl font-bold tracking-tight font-display">
               <span className="text-foreground">LYFT</span>
-              <span className="text-primary">Z</span>
+              <span className="text-primary">z</span>
             </span>
           </Link>
 

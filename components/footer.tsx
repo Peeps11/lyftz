@@ -9,7 +9,7 @@ export function Footer() {
           <Link href="#inicio" className="inline-block">
             <span className="text-xl md:text-2xl font-display font-bold tracking-tight">
               <span className="text-foreground">LYFT</span>
-              <span className="text-primary">Z</span>
+              <span className="text-primary">z</span>
             </span>
           </Link>
         </div>

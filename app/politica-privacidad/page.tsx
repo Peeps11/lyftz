@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata = {
-  title: 'Política de Privacidad | LYFTZ',
-  description: 'Política de privacidad de LYFTZ - Coaching online de fitness y nutrición',
+  title: 'Política de Privacidad | LYFT·Z',
+  description: 'Política de privacidad de LYFT·Z - Coaching online de fitness y nutrición',
 }
 
 export default function PoliticaPrivacidadPage() {
@@ -38,7 +38,7 @@ export default function PoliticaPrivacidadPage() {
               informamos de que:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Responsable:</strong> LYFTZ.LTD</li>
+              <li><strong className="text-foreground">Responsable:</strong> LYFT·Z.LTD</li>
               <li><strong className="text-foreground">Domicilio:</strong> Ephesou, 9, Paralimni, 5280, Famagusta, Chipre</li>
               <li><strong className="text-foreground">Correo electrónico:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Sitio web:</strong> www.lyftz.fit</li>
@@ -267,7 +267,7 @@ export default function PoliticaPrivacidadPage() {
           <hr className="border-border" />
 
           <p className="text-center text-muted-foreground italic">
-            LYFTZ — Coaching Online Personalizado
+            LYFT·Z — Coaching Online Personalizado
           </p>
         </div>
       </div>

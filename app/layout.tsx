@@ -15,7 +15,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'LYFTZ | Coaching Online que Funciona de Verdad',
+  title: 'LYFT·Z | Coaching Online que Funciona de Verdad',
   description: 'Coaching de entrenamiento y nutricion para personas con poco tiempo y muchos intentos fallidos. Metodo personalizado con seguimiento diario. +100 clientes transformados.',
   keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado', 'online'],
 }

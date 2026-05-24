@@ -2,8 +2,8 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata = {
-  title: 'Términos y Condiciones | LYFTZ',
-  description: 'Términos y condiciones de uso de los servicios de LYFTZ',
+  title: 'Términos y Condiciones | LYFT·Z',
+  description: 'Términos y condiciones de uso de los servicios de LYFT·Z',
 }
 
 export default function TerminosCondicionesPage() {
@@ -37,7 +37,7 @@ export default function TerminosCondicionesPage() {
               web y los servicios asociados son titularidad de:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Nombre/Razón social:</strong> LYFTZ.LTD</li>
+              <li><strong className="text-foreground">Nombre/Razón social:</strong> LYFT·Z.LTD</li>
               <li><strong className="text-foreground">Domicilio:</strong> Ephesou, 9, Paralimni, 5280, Famagusta, Chipre</li>
               <li><strong className="text-foreground">Correo electrónico de contacto:</strong> nutritionbadia@gmail.com</li>
               <li><strong className="text-foreground">Sitio web:</strong> www.lyftz.fit</li>
@@ -47,7 +47,7 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">2. Aceptación de los Términos</h2>
             <p>
-              El acceso y uso de los servicios de LYFTZ implica la aceptación plena y sin reservas 
+              El acceso y uso de los servicios de LYFT·Z implica la aceptación plena y sin reservas 
               de los presentes términos y condiciones. Si no estás de acuerdo con alguna parte de 
               los mismos, debes abstenerte de contratar o utilizar nuestros servicios.
             </p>
@@ -63,7 +63,7 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">3. Descripción de los Servicios</h2>
             <p>
-              LYFTZ ofrece servicios de coaching online personalizado en las áreas de entrenamiento 
+              LYFT·Z ofrece servicios de coaching online personalizado en las áreas de entrenamiento 
               físico y nutrición, que incluyen:
             </p>
             <ul className="list-disc pl-6 space-y-2">
@@ -81,7 +81,7 @@ export default function TerminosCondicionesPage() {
 
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">4. Requisitos del Usuario</h2>
-            <p>Para contratar y utilizar los servicios de LYFTZ, el usuario debe:</p>
+            <p>Para contratar y utilizar los servicios de LYFT·Z, el usuario debe:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Ser mayor de 18 años. En caso de ser menor de edad, será necesaria la autorización 
                 expresa de su tutor legal, quien asumirá plena responsabilidad.</li>
@@ -94,7 +94,7 @@ export default function TerminosCondicionesPage() {
                 cardiovasculares, metabólicas o cualquier otra condición de salud.</li>
             </ul>
             <p>
-              LYFTZ se reserva el derecho de rechazar la prestación del servicio si considera que el 
+              LYFT·Z se reserva el derecho de rechazar la prestación del servicio si considera que el 
               perfil del cliente no es adecuado para el mismo o si la información proporcionada es 
               incompleta o falsa.
             </p>
@@ -105,7 +105,7 @@ export default function TerminosCondicionesPage() {
             
             <h3 className="text-lg font-medium text-foreground">5.1 Proceso de contratación</h3>
             <p>
-              La contratación de los servicios de LYFTZ se formaliza tras la videollamada de valoración 
+              La contratación de los servicios de LYFT·Z se formaliza tras la videollamada de valoración 
               gratuita y la aceptación expresa por parte del cliente de la propuesta de servicio y de 
               los presentes términos y condiciones.
             </p>
@@ -144,7 +144,7 @@ export default function TerminosCondicionesPage() {
             <h3 className="text-lg font-medium text-foreground">6.2 Forma de pago</h3>
             <p>
               El pago se realizará según las condiciones acordadas en la propuesta de servicio (pago único, 
-              mensual u otra modalidad pactada). En caso de impago, LYFTZ se reserva el derecho a suspender 
+              mensual u otra modalidad pactada). En caso de impago, LYFT·Z se reserva el derecho a suspender 
               la prestación del servicio hasta la regularización de la deuda, sin que ello exima al cliente 
               de sus obligaciones económicas.
             </p>
@@ -186,7 +186,7 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">8. Limitación de Responsabilidad</h2>
             <p>
-              LYFTZ presta servicios de coaching y asesoramiento en entrenamiento y nutrición. En 
+              LYFT·Z presta servicios de coaching y asesoramiento en entrenamiento y nutrición. En 
               ningún caso seremos responsables de:
             </p>
             <ul className="list-disc pl-6 space-y-2">
@@ -201,7 +201,7 @@ export default function TerminosCondicionesPage() {
                 uso de los servicios.</li>
             </ul>
             <p className="text-foreground font-medium">
-              Los servicios de LYFTZ no constituyen, en ningún caso, consejo médico, diagnóstico ni 
+              Los servicios de LYFT·Z no constituyen, en ningún caso, consejo médico, diagnóstico ni 
               tratamiento de enfermedades. Se recomienda siempre la supervisión de un profesional 
               médico cualificado antes de iniciar cualquier programa de ejercicio o cambio alimentario.
             </p>
@@ -210,7 +210,7 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">9. Fuerza Mayor</h2>
             <p>
-              LYFTZ no será responsable por el incumplimiento o retraso en la prestación de los servicios 
+              LYFT·Z no será responsable por el incumplimiento o retraso en la prestación de los servicios 
               cuando se deba a causas ajenas a su voluntad y razonablemente imprevisibles, tales como 
               enfermedad grave del coach, causas de fuerza mayor, caso fortuito, desastres naturales, 
               pandemias u otras circunstancias análogas.
@@ -227,15 +227,15 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">10. Propiedad Intelectual</h2>
             <p>
-              Todo el contenido proporcionado por LYFTZ —incluyendo planes de entrenamiento, guías 
+              Todo el contenido proporcionado por LYFT·Z —incluyendo planes de entrenamiento, guías 
               nutricionales, vídeos, materiales educativos, imágenes, textos y cualquier otro recurso— 
-              es propiedad exclusiva de LYFTZ y está protegido por la legislación vigente en materia 
+              es propiedad exclusiva de LYFT·Z y está protegido por la legislación vigente en materia 
               de propiedad intelectual.
             </p>
             <p>
               Queda expresamente prohibida su reproducción total o parcial, distribución, comunicación 
               pública, transformación o cualquier otro uso no autorizado, sin contar con la autorización 
-              expresa y por escrito de LYFTZ. El incumplimiento de esta cláusula podrá dar lugar a las 
+              expresa y por escrito de LYFT·Z. El incumplimiento de esta cláusula podrá dar lugar a las 
               acciones legales correspondientes.
             </p>
           </section>
@@ -247,7 +247,7 @@ export default function TerminosCondicionesPage() {
               de Datos Personales y garantía de los derechos digitales (LOPDGDD), informamos de que:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong className="text-foreground">Responsable del tratamiento:</strong> LYFTZ, LTD.</li>
+              <li><strong className="text-foreground">Responsable del tratamiento:</strong> LYFT·Z, LTD.</li>
               <li><strong className="text-foreground">Finalidad:</strong> Gestión de la relación contractual, prestación de los 
                 servicios contratados, y envío de comunicaciones relacionadas con el servicio.</li>
               <li><strong className="text-foreground">Legitimación:</strong> Ejecución del contrato y consentimiento del interesado.</li>
@@ -266,7 +266,7 @@ export default function TerminosCondicionesPage() {
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-foreground">12. Comunicaciones</h2>
             <p>
-              Al contratar los servicios de LYFTZ, el cliente acepta recibir comunicaciones relacionadas 
+              Al contratar los servicios de LYFT·Z, el cliente acepta recibir comunicaciones relacionadas 
               con el servicio a través de los medios facilitados (correo electrónico, WhatsApp u otros 
               canales acordados).
             </p>
@@ -317,7 +317,7 @@ export default function TerminosCondicionesPage() {
           <hr className="border-border" />
 
           <p className="text-center text-muted-foreground italic">
-            LYFTZ — Coaching Online Personalizado
+            LYFT·Z — Coaching Online Personalizado
           </p>
         </div>
       </div>

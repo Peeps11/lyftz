@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 export function AboutSection() {
@@ -8,14 +7,18 @@ export function AboutSection() {
     <section id="sobre-mi" className="py-20 px-4 bg-secondary">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
+          {/* Video */}
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.13.59-8XFQkLTDblTBRiiY0IinfhbbMoCNOp.jpeg"
-              alt="Coach Badia"
-              fill
-              className="object-cover"
+            <video
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SnapInsta.to_AQOwcgbIw9guCUSfkwa7JjlT4p3OxGPrAgNu0hcUC_3Q61GyMCr4cYk2c4Kice3w9z-q2h3-tmwtn4602iwUuf2F-HigWOHG7oDawJgoasIKr1INT3ViQhM.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
             />
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-black/35" />
           </div>
 
           {/* Content */}

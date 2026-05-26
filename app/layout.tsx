@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Syne } from 'next/font/google'
+import { Montserrat, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -8,15 +8,16 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const syne = Syne({ 
+const montserrat = Montserrat({ 
   subsets: ["latin"],
-  variable: '--font-syne',
+  variable: '--font-montserrat',
+  weight: ['500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
-  title: 'FISIBA | Athlete Performance Hub',
-  description: 'Premium, high-performance online coaching for athletes and individuals looking to optimize their physical performance and aesthetics.',
-  keywords: ['coaching', 'fitness', 'athlete', 'performance', 'training', 'nutrition'],
+  title: 'LYFT·Z | Coaching Online que Funciona de Verdad',
+  description: 'Coaching de entrenamiento y nutricion para personas con poco tiempo y muchos intentos fallidos. Metodo personalizado con seguimiento diario. +100 clientes transformados.',
+  keywords: ['coaching', 'fitness', 'entrenamiento', 'nutricion', 'transformacion', 'personalizado', 'online'],
 }
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className={`${inter.variable} ${syne.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

@@ -1,81 +1,60 @@
-import Image from 'next/image'
-import { Award, Target, Heart } from 'lucide-react'
+'use client'
+
+import Link from 'next/link'
 
 export function AboutSection() {
   return (
-    <section id="sobre-mi" className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Side */}
-          <div className="relative">
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-secondary to-card overflow-hidden border border-border">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.13.59-8XFQkLTDblTBRiiY0IinfhbbMoCNOp.jpeg"
-                alt="Coach Badia"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-primary/30 rounded-xl" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-primary/10 rounded-lg" />
+    <section id="sobre-mi" className="py-20 px-4 bg-secondary">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Video */}
+          <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+            <video
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SnapInsta.to_AQOwcgbIw9guCUSfkwa7JjlT4p3OxGPrAgNu0hcUC_3Q61GyMCr4cYk2c4Kice3w9z-q2h3-tmwtn4602iwUuf2F-HigWOHG7oDawJgoasIKr1INT3ViQhM.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
 
-          {/* Content Side */}
+          {/* Content */}
           <div className="space-y-6">
-            <div>
-              <span className="text-primary text-sm font-medium uppercase tracking-wider">Sobre Mí</span>
-              <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-syne)] mt-2 mb-4">
-                Tu Entrenador,{' '}
-                <span className="text-primary">Badia</span>
-              </h2>
+            <span className="text-primary text-sm font-medium uppercase tracking-wider">Sobre mí</span>
+            <h2 className="text-3xl md:text-4xl font-bold font-display">
+              Ciencia aplicada, <span className="text-primary">resultados reales</span>
+            </h2>
+            
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Llevo más de <strong className="text-foreground">7 años</strong> en este mundo, 
+                con certificaciones nacionales e internacionales en preparación física y dietética.
+              </p>
+              <p>
+                Pero hubo un tiempo en que yo era el primero en hacerlo mal. Cardio en ayunas a las 6 de la mañana, 
+                pollo con arroz cinco veces al día, planes de Instagram que prometían resultados en 30 días. 
+                <strong className="text-foreground"> Agotado, sin progresar</strong>, preguntándome qué estaba haciendo mal.
+              </p>
+              <p>
+                El problema no era mi esfuerzo. Era que esos planes no eran míos.
+              </p>
+              <p>
+                Cuando aprendí a adaptar el método a mi vida real, no a la de un atleta profesional, todo cambió.
+              </p>
+              <p>
+                <strong className="text-foreground">Eso es exactamente lo que hago contigo.</strong>
+              </p>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed">
-              Con más de 10 años de experiencia en el mundo del fitness y la preparación 
-              física, he dedicado mi carrera a ayudar a atletas y personas comprometidas 
-              a alcanzar su máximo potencial.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed">
-              Mi filosofía se basa en la ciencia, la constancia y la personalización. 
-              Cada persona es única, y por eso cada programa que diseño está adaptado 
-              específicamente a tus necesidades, objetivos y estilo de vida.
-            </p>
-
-            {/* Credentials */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Award className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium">Certificado</p>
-                  <p className="text-xs text-muted-foreground">NSCA-CPT</p>
-                </div>
+            <div className="pt-4 flex items-center gap-4">
+              <div>
+                <span className="block text-foreground font-bold text-lg">Badia</span>
+                <span className="text-sm text-muted-foreground">Preparador físico | Dietista</span>
               </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Target className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium">+50</p>
-                  <p className="text-xs text-muted-foreground">Clientes</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium">10+ Años</p>
-                  <p className="text-xs text-muted-foreground">Experiencia</p>
-                </div>
-              </div>
+              <Link href="#contacto" className="ml-auto text-primary hover:underline text-sm">
+                Hablemos →
+              </Link>
             </div>
           </div>
         </div>

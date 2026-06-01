@@ -4,18 +4,14 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const transformations = [
-  // Row 1
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-inELvSlNUw29vVw5PSqtD7CMR30hJW.jpg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg',
-  // Row 2
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sadasdasddasd-SKB183OmQicuFiZL26KvzdwCgwKLh2.jpg',
-  // Row 3
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-HsMmqFRh0OrsdSbg06boYC9nFPfqWq.jpg',
-  // Row 4
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dasdasdas-7yycNlHEntCHkgWmP1yWHuQ3OtU5gs.jpg',
+  // Pair 1 - Mujer
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg' },
+  // Pair 2 - Hombre tatuajes pecho
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-HsMmqFRh0OrsdSbg06boYC9nFPfqWq.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-inELvSlNUw29vVw5PSqtD7CMR30hJW.jpg' },
+  // Pair 3 - Hombre tatuajes brazo/cuello
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg' },
+  // Pair 4 - Hombre
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sadasdasddasd-SKB183OmQicuFiZL26KvzdwCgwKLh2.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dasdasdas-7yycNlHEntCHkgWmP1yWHuQ3OtU5gs.jpg' },
 ]
 
 const testimonials = [
@@ -67,24 +63,39 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Transformation Photos - 2 columns, smaller images */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6 mb-20 max-w-3xl mx-auto">
-          {transformations.map((src, index) => (
+        {/* Transformation Photos - 2 columns with before/after pairs */}
+        <div className="space-y-6 mb-20 max-w-3xl mx-auto">
+          {transformations.map((pair, index) => (
             <div
               key={index}
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02]"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-2 gap-4 md:gap-6"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <Image
-                src={src}
-                alt={`Transformacion cliente ${index + 1}`}
-                fill
-                className="object-cover transition-transform duration-500"
-                sizes="(max-width: 768px) 45vw, 300px"
-              />
-              {/* Label */}
-              <div className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-foreground/80">
-                Antes & Despues
+              {/* Before */}
+              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={pair.before}
+                  alt={`Antes - Cliente ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 45vw, 300px"
+                />
+                <div className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              {/* After */}
+              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={pair.after}
+                  alt={`Despues - Cliente ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 45vw, 300px"
+                />
+                <div className="absolute bottom-3 left-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-primary-foreground">
+                  Despues
+                </div>
               </div>
             </div>
           ))}

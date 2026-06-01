@@ -63,42 +63,75 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Transformation Photos - 2 columns with before/after pairs */}
-        <div className="space-y-6 mb-20 max-w-3xl mx-auto">
-          {transformations.map((pair, index) => (
-            <div
-              key={index}
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-2 gap-4 md:gap-6"
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              {/* Before */}
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                <Image
-                  src={pair.before}
-                  alt={`Antes - Cliente ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 45vw, 300px"
-                />
-                <div className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-foreground/80">
-                  Antes
+        {/* Transformation Photos - Row 1: first 4 photos (2 pairs), Row 2: last 4 photos (2 pairs) */}
+        <div className="space-y-4 mb-20">
+          {/* Row 1 - First 2 pairs */}
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-4 gap-3">
+            {transformations.slice(0, 2).map((pair, index) => (
+              <>
+                {/* Before */}
+                <div key={`before-${index}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                  <Image
+                    src={pair.before}
+                    alt={`Antes - Cliente ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 25vw, 200px"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                    Antes
+                  </div>
                 </div>
-              </div>
-              {/* After */}
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                <Image
-                  src={pair.after}
-                  alt={`Despues - Cliente ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 45vw, 300px"
-                />
-                <div className="absolute bottom-3 left-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-primary-foreground">
-                  Despues
+                {/* After */}
+                <div key={`after-${index}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                  <Image
+                    src={pair.after}
+                    alt={`Despues - Cliente ${index + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 25vw, 200px"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                    Despues
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </>
+            ))}
+          </div>
+          
+          {/* Row 2 - Last 2 pairs */}
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-4 gap-3" style={{ transitionDelay: '150ms' }}>
+            {transformations.slice(2, 4).map((pair, index) => (
+              <>
+                {/* Before */}
+                <div key={`before-${index + 2}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                  <Image
+                    src={pair.before}
+                    alt={`Antes - Cliente ${index + 3}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 25vw, 200px"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                    Antes
+                  </div>
+                </div>
+                {/* After */}
+                <div key={`after-${index + 2}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                  <Image
+                    src={pair.after}
+                    alt={`Despues - Cliente ${index + 3}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 25vw, 200px"
+                  />
+                  <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                    Despues
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
         </div>
 
         {/* Divider */}

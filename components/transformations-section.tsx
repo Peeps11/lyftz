@@ -63,74 +63,133 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Transformation Photos - Row 1: first 4 photos (2 pairs), Row 2: last 4 photos (2 pairs) */}
-        <div className="space-y-4 mb-20">
+        {/* Transformation Photos - 2 rows with dividers */}
+        <div className="mb-20">
           {/* Row 1 - First 2 pairs */}
-          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-4 gap-3">
-            {transformations.slice(0, 2).map((pair, index) => (
-              <>
-                {/* Before */}
-                <div key={`before-${index}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                  <Image
-                    src={pair.before}
-                    alt={`Antes - Cliente ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 25vw, 200px"
-                  />
-                  <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
-                    Antes
-                  </div>
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-8 md:gap-12">
+            {/* Pair 1 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[0].before}
+                  alt="Antes - Cliente 1"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
                 </div>
-                {/* After */}
-                <div key={`after-${index}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                  <Image
-                    src={pair.after}
-                    alt={`Despues - Cliente ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 25vw, 200px"
-                  />
-                  <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
-                    Despues
-                  </div>
+              </div>
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[0].after}
+                  alt="Despues - Cliente 1"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
                 </div>
-              </>
-            ))}
+              </div>
+            </div>
+            
+            {/* Vertical divider */}
+            <div className="h-40 md:h-48 w-px bg-border" />
+            
+            {/* Pair 2 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[1].before}
+                  alt="Antes - Cliente 2"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[1].after}
+                  alt="Despues - Cliente 2"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
           </div>
           
+          {/* Horizontal divider */}
+          <div className="w-full max-w-2xl mx-auto h-px bg-border my-8" />
+          
           {/* Row 2 - Last 2 pairs */}
-          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 grid grid-cols-4 gap-3" style={{ transitionDelay: '150ms' }}>
-            {transformations.slice(2, 4).map((pair, index) => (
-              <>
-                {/* Before */}
-                <div key={`before-${index + 2}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                  <Image
-                    src={pair.before}
-                    alt={`Antes - Cliente ${index + 3}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 25vw, 200px"
-                  />
-                  <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
-                    Antes
-                  </div>
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-8 md:gap-12" style={{ transitionDelay: '150ms' }}>
+            {/* Pair 3 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[2].before}
+                  alt="Antes - Cliente 3"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
                 </div>
-                {/* After */}
-                <div key={`after-${index + 2}`} className="relative aspect-[3/4] rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
-                  <Image
-                    src={pair.after}
-                    alt={`Despues - Cliente ${index + 3}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 25vw, 200px"
-                  />
-                  <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
-                    Despues
-                  </div>
+              </div>
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[2].after}
+                  alt="Despues - Cliente 3"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
                 </div>
-              </>
-            ))}
+              </div>
+            </div>
+            
+            {/* Vertical divider */}
+            <div className="h-40 md:h-48 w-px bg-border" />
+            
+            {/* Pair 4 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[3].before}
+                  alt="Antes - Cliente 4"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[3].after}
+                  alt="Despues - Cliente 4"
+                  fill
+                  className="object-cover"
+                  sizes="150px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

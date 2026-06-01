@@ -6,32 +6,25 @@ import Image from 'next/image'
 const transformations = [
   {
     id: 1,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TheJohnKnee%20%20What%20a%20difference%20a%20year%20can%20do%20_TransformationTuesday-cRxnRamIU2X9tWeS0ZmgSRHjHvvL2W.jpg',
-    name: 'Cliente 1',
+    before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-jTw8HKPG20D5s80bGLJbEKnOmJ1ZiQ.jpg',
+    after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-8nkx34XcpiIfcd7WsawryREdD3TdHV.jpg',
   },
   {
     id: 2,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Feel%20Light%2C%20Confident%20%26%20Beautiful%20in%20Your%20Own%20Body%20Again%20%E2%9C%A8%EF%B8%8F%20%281%29-2F9nMgiamgQ6iK5PJTep0VGjEfL28A.jpg',
-    name: 'Cliente 2',
-  },
-  {
-    id: 3,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%282%29%20%281%29-flyzuP4UGTSguyrTYyaA1XKjud6Lui.jpg',
-    name: 'Cliente 3',
-  },
-  {
-    id: 4,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%281%29%20%281%29-5smxl0jVZ5slAaAh8b6Uqi7XJnwbyA.jpg',
-    name: 'Cliente 4',
+    before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-2UYsq9G6erkZ5clK4kj4Go50kj5N9D.jpeg',
+    after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-rh3sDJ2BeFXNXzzaeZNh0MzlXaYyOC.jpeg',
   },
 ]
 
 const testimonials = [
   {
-    quote: "En 4 meses baje 12 kg sin pasar hambre y sin dejar de comer con mi familia los fines de semana.",
+    quote: "Estoy muy contenta con el trato y la profesionalidad. Tanto la planificacion de la alimentacion como los entrenamientos estan adaptados a mi y a mis objetivos, y eso hace que todo sea mucho mas facil de seguir. Ademas, siempre esta disponible para resolver dudas y hacer ajustes cuando es necesario. Lo recomiendo totalmente a cualquiera que busque resultados de forma saludable y sostenible.",
   },
   {
-    quote: "Badia me diseno un plan de 3 dias a la semana y en 6 meses cambie mas que en 2 anos yendo al gym por mi cuenta.",
+    quote: "El mejor preparador fisico que he probado, destaca su predisposicion en todo, la gran variedad de comidas que te da te hace que no te saltes la dieta, nada de dietas pesadas. Un gran entreno el que te prepara, te lo explica punto por punto, con metodologias segun lo que te va a ir bien. Su motivacion hace que te mantengas enfocado. Lo recomiendo a todo el que quiera avanzar y no estancarse.",
+  },
+  {
+    quote: "Badia super contenta con los resultados!!! El mejor preparador fitness.",
   },
   {
     quote: "Cuando tienes una duda a las 8 de la noche y recibes respuesta en minutos, eso marca la diferencia.",
@@ -72,23 +65,41 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Photos - Horizontal row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20">
+        {/* Before/After Photos - 2 rows, each with before and after side by side */}
+        <div className="space-y-8 mb-20">
           {transformations.map((item, index) => (
             <div
               key={item.id}
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 group"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 transition-colors">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                {/* Before */}
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-border/50 group">
+                  <Image
+                    src={item.before}
+                    alt={`Antes - Cliente ${item.id}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 40vw"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
+                    ANTES
+                  </div>
+                </div>
+                {/* After */}
+                <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-primary/30 group">
+                  <Image
+                    src={item.after}
+                    alt={`Despues - Cliente ${item.id}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 40vw"
+                  />
+                  <div className="absolute bottom-3 left-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-primary-foreground">
+                    DESPUES
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -104,8 +115,8 @@ export function TransformationsSection() {
           </h3>
         </div>
 
-        {/* Testimonials - Full width cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Testimonials - 2x2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testi, index) => (
             <div 
               key={index} 
@@ -117,7 +128,7 @@ export function TransformationsSection() {
                   <span key={i}>★</span>
                 ))}
               </div>
-              <p className="text-lg text-foreground leading-relaxed">
+              <p className="text-base text-foreground leading-relaxed">
                 &ldquo;{testi.quote}&rdquo;
               </p>
             </div>

@@ -5,13 +5,17 @@ import Image from 'next/image'
 
 const transformations = [
   // Row 1
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-jTw8HKPG20D5s80bGLJbEKnOmJ1ZiQ.jpg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-8nkx34XcpiIfcd7WsawryREdD3TdHV.jpg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-2UYsq9G6erkZ5clK4kj4Go50kj5N9D.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-inELvSlNUw29vVw5PSqtD7CMR30hJW.jpg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg',
   // Row 2
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-rh3sDJ2BeFXNXzzaeZNh0MzlXaYyOC.jpeg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.14.00-pzVoHqJMQ9kDAy0NXTuFiHLxJbZxb5.jpeg',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.14.01-DVzRLOGLaJEBGnZhjz3HuBYZ1NLV1R.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sadasdasddasd-SKB183OmQicuFiZL26KvzdwCgwKLh2.jpg',
+  // Row 3
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-HsMmqFRh0OrsdSbg06boYC9nFPfqWq.jpg',
+  // Row 4
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dasdasdas-7yycNlHEntCHkgWmP1yWHuQ3OtU5gs.jpg',
 ]
 
 const testimonials = [
@@ -63,21 +67,25 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Transformation Photos - 2 rows of 3 */}
-        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-20">
+        {/* Transformation Photos - 2 columns, smaller images */}
+        <div className="grid grid-cols-2 gap-4 md:gap-6 mb-20 max-w-3xl mx-auto">
           {transformations.map((src, index) => (
             <div
               key={index}
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 relative aspect-[3/4] rounded-xl overflow-hidden border border-border/50 group"
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 relative aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent group hover:border-primary hover:scale-[1.02]"
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <Image
                 src={src}
                 alt={`Transformacion cliente ${index + 1}`}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 33vw, 30vw"
+                className="object-cover transition-transform duration-500"
+                sizes="(max-width: 768px) 45vw, 300px"
               />
+              {/* Label */}
+              <div className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-foreground/80">
+                Antes & Despues
+              </div>
             </div>
           ))}
         </div>

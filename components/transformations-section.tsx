@@ -4,16 +4,14 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const transformations = [
-  {
-    id: 1,
-    before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-jTw8HKPG20D5s80bGLJbEKnOmJ1ZiQ.jpg',
-    after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-8nkx34XcpiIfcd7WsawryREdD3TdHV.jpg',
-  },
-  {
-    id: 2,
-    before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-2UYsq9G6erkZ5clK4kj4Go50kj5N9D.jpeg',
-    after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-rh3sDJ2BeFXNXzzaeZNh0MzlXaYyOC.jpeg',
-  },
+  // Row 1
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-jTw8HKPG20D5s80bGLJbEKnOmJ1ZiQ.jpg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-8nkx34XcpiIfcd7WsawryREdD3TdHV.jpg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-2UYsq9G6erkZ5clK4kj4Go50kj5N9D.jpeg',
+  // Row 2
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-rh3sDJ2BeFXNXzzaeZNh0MzlXaYyOC.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.14.00-pzVoHqJMQ9kDAy0NXTuFiHLxJbZxb5.jpeg',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-10%20at%2015.14.01-DVzRLOGLaJEBGnZhjz3HuBYZ1NLV1R.jpeg',
 ]
 
 const testimonials = [
@@ -65,42 +63,21 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Before/After Photos - 2 rows, each with before and after side by side */}
-        <div className="space-y-8 mb-20">
-          {transformations.map((item, index) => (
+        {/* Transformation Photos - 2 rows of 3 */}
+        <div className="grid grid-cols-3 gap-4 md:gap-6 mb-20">
+          {transformations.map((src, index) => (
             <div
-              key={item.id}
-              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700"
-              style={{ transitionDelay: `${index * 150}ms` }}
+              key={index}
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 relative aspect-[3/4] rounded-xl overflow-hidden border border-border/50 group"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                {/* Before */}
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-border/50 group">
-                  <Image
-                    src={item.before}
-                    alt={`Antes - Cliente ${item.id}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 40vw"
-                  />
-                  <div className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
-                    ANTES
-                  </div>
-                </div>
-                {/* After */}
-                <div className="relative aspect-[3/4] rounded-xl overflow-hidden border border-primary/30 group">
-                  <Image
-                    src={item.after}
-                    alt={`Despues - Cliente ${item.id}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 50vw, 40vw"
-                  />
-                  <div className="absolute bottom-3 left-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-primary-foreground">
-                    DESPUES
-                  </div>
-                </div>
-              </div>
+              <Image
+                src={src}
+                alt={`Transformacion cliente ${index + 1}`}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 33vw, 30vw"
+              />
             </div>
           ))}
         </div>

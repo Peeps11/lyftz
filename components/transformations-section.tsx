@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const transformations = [
-  // Pair 1 - Mujer
-  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg' },
+  // Pair 1 - Hombre tatuajes brazo/cuello (antes era pair 3)
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg' },
   // Pair 2 - Hombre tatuajes pecho
   { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-HsMmqFRh0OrsdSbg06boYC9nFPfqWq.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-inELvSlNUw29vVw5PSqtD7CMR30hJW.jpg' },
-  // Pair 3 - Hombre tatuajes brazo/cuello
-  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg' },
+  // Pair 3 - Mujer (antes era pair 1)
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg' },
   // Pair 4 - Hombre
   { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sadasdasddasd-SKB183OmQicuFiZL26KvzdwCgwKLh2.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dasdasdas-7yycNlHEntCHkgWmP1yWHuQ3OtU5gs.jpg' },
 ]
@@ -63,31 +63,31 @@ export function TransformationsSection() {
           </p>
         </div>
 
-        {/* Transformation Photos - 2 rows with dividers */}
+        {/* Transformation Photos - 2 rows without dividers */}
         <div className="mb-20">
           {/* Row 1 - First 2 pairs */}
-          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-8 md:gap-12">
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-12 md:gap-20">
             {/* Pair 1 */}
             <div className="flex gap-2">
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[0].before}
                   alt="Antes - Cliente 1"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
                   Antes
                 </div>
               </div>
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[0].after}
                   alt="Despues - Cliente 1"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
                   Despues
@@ -95,30 +95,27 @@ export function TransformationsSection() {
               </div>
             </div>
             
-            {/* Vertical divider */}
-            <div className="h-40 md:h-48 w-px bg-border" />
-            
             {/* Pair 2 */}
             <div className="flex gap-2">
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[1].before}
                   alt="Antes - Cliente 2"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
                   Antes
                 </div>
               </div>
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[1].after}
                   alt="Despues - Cliente 2"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
                   Despues
@@ -127,32 +124,32 @@ export function TransformationsSection() {
             </div>
           </div>
           
-          {/* Horizontal divider */}
-          <div className="w-full max-w-2xl mx-auto h-px bg-border my-8" />
+          {/* Spacing between rows */}
+          <div className="h-10" />
           
           {/* Row 2 - Last 2 pairs */}
-          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-8 md:gap-12" style={{ transitionDelay: '150ms' }}>
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-12 md:gap-20" style={{ transitionDelay: '150ms' }}>
             {/* Pair 3 */}
             <div className="flex gap-2">
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[2].before}
                   alt="Antes - Cliente 3"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
                   Antes
                 </div>
               </div>
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[2].after}
                   alt="Despues - Cliente 3"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
                   Despues
@@ -160,30 +157,27 @@ export function TransformationsSection() {
               </div>
             </div>
             
-            {/* Vertical divider */}
-            <div className="h-40 md:h-48 w-px bg-border" />
-            
             {/* Pair 4 */}
             <div className="flex gap-2">
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[3].before}
                   alt="Antes - Cliente 4"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
                   Antes
                 </div>
               </div>
-              <div className="relative aspect-[3/4] w-28 md:w-36 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
                   src={transformations[3].after}
                   alt="Despues - Cliente 4"
                   fill
                   className="object-cover"
-                  sizes="150px"
+                  sizes="180px"
                 />
                 <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
                   Despues

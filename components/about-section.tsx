@@ -10,7 +10,7 @@ export function AboutSection() {
           {/* Video */}
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
             <video
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SnapInsta.to_AQOwcgbIw9guCUSfkwa7JjlT4p3OxGPrAgNu0hcUC_3Q61GyMCr4cYk2c4Kice3w9z-q2h3-tmwtn4602iwUuf2F-HigWOHG7oDawJgoasIKr1INT3ViQhM.mp4"
+              src="https://ycqowncgqeqquukn.public.blob.vercel-storage.com/8k%2060%20fps%20.mov"
               autoPlay
               muted
               loop

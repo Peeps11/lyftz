@@ -1,23 +1,68 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+
+const ABOUT_VIDEO_SRC =
+  'https://ycqowncgqeqquukn.public.blob.vercel-storage.com/sobre-mi-1080p-n2uJoPGdmi9YGSleFjNeOJv69YXgVh.mp4'
 
 export function AboutSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
+  const [isReady, setIsReady] = useState(false)
+
+  // Only start loading the video when the section is near the viewport
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShouldLoad(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '300px' }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Kick off playback once the source is set
+  useEffect(() => {
+    if (shouldLoad && videoRef.current) {
+      videoRef.current.play().catch(() => {})
+    }
+  }, [shouldLoad])
+
   return (
     <section id="sobre-mi" className="py-20 px-4 bg-secondary">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Video */}
-          <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+          <div ref={containerRef} className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+            {/* Poster shown instantly; fades out when video is ready */}
+            <img
+              src="/images/about-poster.png"
+              alt="Badia entrenando"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                isReady ? 'opacity-0' : 'opacity-100'
+              }`}
+            />
             <video
-              src="https://ycqowncgqeqquukn.public.blob.vercel-storage.com/sobre-mi-1080p-n2uJoPGdmi9YGSleFjNeOJv69YXgVh.mp4"
-              poster="/images/about-poster.png"
-              autoPlay
+              ref={videoRef}
+              src={shouldLoad ? ABOUT_VIDEO_SRC : undefined}
               muted
               loop
               playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
+              preload="none"
+              onCanPlay={() => setIsReady(true)}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                isReady ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           </div>
 

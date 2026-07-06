@@ -10,13 +10,13 @@ export function AboutSection() {
           {/* Video */}
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
             <video
-              src="https://ycqowncgqeqquukn.public.blob.vercel-storage.com/8k%2060%20fps%20.mp4"
+              src="https://ycqowncgqeqquukn.public.blob.vercel-storage.com/sobre-mi-1080p-n2uJoPGdmi9YGSleFjNeOJv69YXgVh.mp4"
               poster="/images/about-poster.png"
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

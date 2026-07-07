@@ -1,70 +1,99 @@
 'use client'
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
+import { useState, useEffect, useRef } from 'react'
 
 const faqs = [
   {
-    question: '¿Necesito material o ir al gimnasio obligatoriamente?',
-    answer: 'No necesariamente. Puedo diseñar planes adaptados a entrenar en casa con material mínimo, en un gimnasio comercial, o incluso combinando ambos. El programa se adapta completamente a los recursos que tengas disponibles.',
+    question: '¿Necesito ir al gimnasio?',
+    answer: 'No. El plan se diseña según tu material disponible. Gimnasio, casa, o solo peso corporal. Lo que importa es la constancia, no dónde lo haces.',
   },
   {
-    question: '¿Cuánto dura el compromiso mínimo?',
-    answer: 'El compromiso mínimo es de 3 meses, ya que es el tiempo necesario para ver cambios significativos y establecer hábitos sostenibles.',
+    question: '¿Cuánto cuesta?',
+    answer: 'El precio varía según la duración y seguimiento. Lo comentamos en la videollamada inicial gratuita. Sin compromiso.',
   },
   {
-    question: '¿El plan de nutrición incluye alimentos raros o restrictivos?',
-    answer: 'Para nada. El plan nutricional se basa en alimentos accesibles y que te gusten. No creo en dietas restrictivas ni en eliminar grupos de alimentos. El objetivo es crear un plan que puedas mantener a largo plazo.',
+    question: '¿Cuánto tiempo hasta ver resultados?',
+    answer: 'La mayoría empieza a notar cambios en las primeras 4-6 semanas. Resultados significativos en 3-4 meses.',
   },
   {
-    question: '¿Qué pasa si no puedo entrenar algún día?',
-    answer: 'La vida pasa, y el programa está diseñado para ser flexible. Si un día no puedes entrenar, simplemente me lo comunicas y ajustamos el plan. La consistencia a largo plazo es más importante que la perfección diaria.',
+    question: '¿Qué compromiso mínimo hay?',
+    answer: 'Trabajamos con mínimo 3 meses. Los cambios reales llevan tiempo. No vendo soluciones milagro.',
   },
   {
-    question: '¿Cómo es el soporte por WhatsApp?',
-    answer: 'Tendrás acceso directo a mí por WhatsApp para resolver cualquier duda sobre entrenamiento, nutrición o seguimiento. Respondo todos los días en horario establecido, garantizando que nunca te sientas solo en el proceso.',
+    question: '¿Por qué no una app?',
+    answer: 'Las apps no conocen tu historial, lesiones ni gustos. Yo sí. La diferencia está en la personalización real.',
+  },
+  {
+    question: '¿Y si no puedo entrenar un día?',
+    answer: 'Nada. Me escribes y ajustamos. Flexibilidad real es parte del método.',
   },
 ]
 
 export function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+
+    const elements = sectionRef.current?.querySelectorAll('.scroll-reveal')
+    elements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-3xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">FAQ</span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-syne)] mt-2 mb-4">
-            Preguntas <span className="text-primary">Frecuentes</span>
+    <section id="faq" ref={sectionRef} className="py-24 px-[5%] bg-background">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight font-display mb-4">
+            PREGUNTAS <span className="text-primary">FRECUENTES</span>
           </h2>
-          <p className="text-muted-foreground text-pretty">
-            Resolvemos las dudas más comunes antes de empezar.
-          </p>
         </div>
 
-        {/* Accordion */}
-        <Accordion type="single" collapsible className="space-y-4">
+        {/* FAQ Grid - 2 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border border-border rounded-xl px-6 bg-card data-[state=open]:border-primary/50 transition-colors"
+            <div 
+              key={index} 
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 border border-border rounded-xl p-6 cursor-pointer hover:border-primary/50 transition-colors bg-secondary/20"
+              style={{ transitionDelay: `${index * 100}ms` }}
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
             >
-              <AccordionTrigger className="text-left hover:no-underline py-5">
-                <span className="font-medium font-[family-name:var(--font-syne)] pr-4">
+              <div className="flex justify-between items-start gap-4">
+                <h3 className="text-lg font-semibold text-foreground">
                   {faq.question}
+                </h3>
+                <span className={`text-primary text-2xl font-light shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
+                  +
                 </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+              </div>
+              <div className={`text-base text-muted-foreground leading-relaxed overflow-hidden transition-all duration-500 ${
+                openIndex === index ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0'
+              }`}>
                 {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              </div>
+            </div>
           ))}
-        </Accordion>
+        </div>
       </div>
+
+      <style jsx>{`
+        .scroll-reveal.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   )
 }

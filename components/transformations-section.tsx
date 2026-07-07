@@ -1,135 +1,229 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 const transformations = [
+  // Pair 1 - Hombre tatuajes brazo/cuello (antes era pair 3)
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.26%20%281%29-CZ8VnNVQaCW2mxmowRENhL6jfCmATc.jpeg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-05-26%20at%2013.59.18%20%281%29-tJ3RuPsfNGLGUObRzVgid2lFeANqkq.jpeg' },
+  // Pair 2 - Hombre tatuajes pecho
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_582321332445290689007263_y%20%281%29-HsMmqFRh0OrsdSbg06boYC9nFPfqWq.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_5832fsdfsdf445290689007263_y%20%281%29-inELvSlNUw29vVw5PSqtD7CMR30hJW.jpg' },
+  // Pair 3 - Mujer (antes era pair 1)
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasdasd%29-31Ej1HzBBavcUEeMMeIk0xQjAlUVGp.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/asdasdasd-z7mg07gPy3RxmO3eFlSBoQPFMNrYl2.jpg' },
+  // Pair 4 - Hombre
+  { before: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sadasdasddasd-SKB183OmQicuFiZL26KvzdwCgwKLh2.jpg', after: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dasdasdas-7yycNlHEntCHkgWmP1yWHuQ3OtU5gs.jpg' },
+]
+
+const testimonials = [
   {
-    id: 1,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TheJohnKnee%20%20What%20a%20difference%20a%20year%20can%20do%20_TransformationTuesday-cRxnRamIU2X9tWeS0ZmgSRHjHvvL2W.jpg',
-    alt: 'Transformación física masculina',
+    quote: "Estoy muy contenta con el trato y la profesionalidad. Tanto la planificacion de la alimentacion como los entrenamientos estan adaptados a mi y a mis objetivos, y eso hace que todo sea mucho mas facil de seguir. Ademas, siempre esta disponible para resolver dudas y hacer ajustes cuando es necesario. Lo recomiendo totalmente a cualquiera que busque resultados de forma saludable y sostenible.",
   },
   {
-    id: 2,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Feel%20Light%2C%20Confident%20%26%20Beautiful%20in%20Your%20Own%20Body%20Again%20%E2%9C%A8%EF%B8%8F%20%281%29-2F9nMgiamgQ6iK5PJTep0VGjEfL28A.jpg',
-    alt: 'Transformación física femenina',
+    quote: "El mejor preparador fisico que he probado, destaca su predisposicion en todo, la gran variedad de comidas que te da te hace que no te saltes la dieta, nada de dietas pesadas. Un gran entreno el que te prepara, te lo explica punto por punto, con metodologias segun lo que te va a ir bien. Su motivacion hace que te mantengas enfocado. Lo recomiendo a todo el que quiera avanzar y no estancarse.",
   },
   {
-    id: 3,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%282%29%20%281%29-flyzuP4UGTSguyrTYyaA1XKjud6Lui.jpg',
-    alt: 'Transformación física femenina',
+    quote: "Badia super contenta con los resultados!!! El mejor preparador fitness.",
   },
   {
-    id: 4,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/descarga%20%281%29%20%281%29-5smxl0jVZ5slAaAh8b6Uqi7XJnwbyA.jpg',
-    alt: 'Transformación física masculina',
+    quote: "Cuando tienes una duda a las 8 de la noche y recibes respuesta en minutos, eso marca la diferencia.",
   },
 ]
 
 export function TransformationsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const sectionRef = useRef<HTMLElement>(null)
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % transformations.length)
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in')
+          }
+        })
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + transformations.length) % transformations.length)
-  }
+    const elements = sectionRef.current?.querySelectorAll('.scroll-reveal')
+    elements?.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section id="resultados" className="py-24 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium uppercase tracking-wider">Resultados Reales</span>
-          <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-syne)] mt-2 mb-4">
-            Antes y <span className="text-primary">Después</span>
+    <section id="resultados" ref={sectionRef} className="py-24 px-[5%] bg-secondary/30">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight font-display mb-4">
+            RESULTADOS <span className="text-primary">REALES</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Transformaciones reales de personas reales que confiaron en el método LYFTZ.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Transformaciones de clientes que decidieron dar el paso
           </p>
         </div>
 
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {transformations.map((item) => (
-            <div
-              key={item.id}
-              className="group relative rounded-xl border border-border bg-card overflow-hidden hover:border-primary/50 transition-all duration-300"
-            >
-              <div className="aspect-[4/5] relative">
+        {/* Transformation Photos - 2 rows without dividers */}
+        <div className="mb-20">
+          {/* Row 1 - First 2 pairs */}
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-12 md:gap-20">
+            {/* Pair 1 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
                 <Image
-                  src={item.image}
-                  alt={item.alt}
+                  src={transformations[0].before}
+                  alt="Antes - Cliente 1"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-cover"
+                  sizes="180px"
                 />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
               </div>
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[0].after}
+                  alt="Despues - Cliente 1"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
+            
+            {/* Pair 2 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[1].before}
+                  alt="Antes - Cliente 2"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[1].after}
+                  alt="Despues - Cliente 2"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Spacing between rows */}
+          <div className="h-10" />
+          
+          {/* Row 2 - Last 2 pairs */}
+          <div className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 flex items-center justify-center gap-12 md:gap-20" style={{ transitionDelay: '150ms' }}>
+            {/* Pair 3 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[2].before}
+                  alt="Antes - Cliente 3"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[2].after}
+                  alt="Despues - Cliente 3"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
+            
+            {/* Pair 4 */}
+            <div className="flex gap-2">
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[3].before}
+                  alt="Antes - Cliente 4"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-background/80 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-foreground/80">
+                  Antes
+                </div>
+              </div>
+              <div className="relative aspect-[3/4] w-32 md:w-40 rounded-lg overflow-hidden border-2 border-transparent hover:border-primary hover:scale-[1.02] transition-all duration-300">
+                <Image
+                  src={transformations[3].after}
+                  alt="Despues - Cliente 4"
+                  fill
+                  className="object-cover"
+                  sizes="180px"
+                />
+                <div className="absolute bottom-2 left-2 bg-primary/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[10px] font-medium text-primary-foreground">
+                  Despues
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-border mb-20" />
+
+        {/* Testimonials Header */}
+        <div className="text-center mb-12 scroll-reveal opacity-0 translate-y-8 transition-all duration-700">
+          <h3 className="text-4xl sm:text-5xl font-bold tracking-tight font-display mb-4">
+            LO QUE <span className="text-primary">DICEN</span>
+          </h3>
+        </div>
+
+        {/* Testimonials - 2x2 grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map((testi, index) => (
+            <div 
+              key={index} 
+              className="scroll-reveal opacity-0 translate-y-8 transition-all duration-700 p-8 rounded-xl border border-border bg-background/50 hover:border-primary/30 transition-colors"
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="flex items-center gap-1 text-primary text-sm mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+              <p className="text-base text-foreground leading-relaxed">
+                &ldquo;{testi.quote}&rdquo;
+              </p>
             </div>
           ))}
         </div>
-
-        {/* Mobile Slider */}
-        <div className="md:hidden">
-          <div className="relative overflow-hidden rounded-xl">
-            <div
-              className="flex transition-transform duration-300 ease-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {transformations.map((item) => (
-                <div key={item.id} className="w-full flex-shrink-0 px-2">
-                  <div className="rounded-xl border border-border bg-card overflow-hidden">
-                    <div className="aspect-[4/5] relative">
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Slider Controls */}
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prevSlide}
-              className="rounded-full"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <div className="flex gap-2">
-              {transformations.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-primary' : 'bg-border'
-                  }`}
-                />
-              ))}
-            </div>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={nextSlide}
-              className="rounded-full"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
-        </div>
       </div>
+
+      <style jsx>{`
+        .scroll-reveal.animate-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </section>
   )
 }

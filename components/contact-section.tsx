@@ -116,7 +116,7 @@ export function ContactSection() {
                       Escríbeme por WhatsApp y resuelvo todas tus dudas
                     </p>
                     <Link 
-                      href="https://wa.me/34603812155"
+                      href="https://wa.me/34614406184"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 text-base font-bold tracking-wider uppercase rounded-full hover:brightness-110 transition-all"

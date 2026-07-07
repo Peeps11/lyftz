@@ -1,8 +1,46 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
 export function AboutSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // Ensure muted is applied via JS (required for iOS autoplay)
+    video.muted = true
+    video.defaultMuted = true
+
+    const tryPlay = () => {
+      video.play().catch(() => {})
+    }
+
+    // Attempt immediately
+    tryPlay()
+
+    // iOS Low Power Mode blocks autoplay until the first user gesture.
+    // Start playback on the first interaction, then clean up.
+    const onInteract = () => {
+      tryPlay()
+      window.removeEventListener('touchstart', onInteract)
+      window.removeEventListener('scroll', onInteract)
+      window.removeEventListener('click', onInteract)
+    }
+
+    window.addEventListener('touchstart', onInteract, { passive: true })
+    window.addEventListener('scroll', onInteract, { passive: true })
+    window.addEventListener('click', onInteract)
+
+    return () => {
+      window.removeEventListener('touchstart', onInteract)
+      window.removeEventListener('scroll', onInteract)
+      window.removeEventListener('click', onInteract)
+    }
+  }, [])
+
   return (
     <section id="sobre-mi" className="py-20 px-4 bg-secondary">
       <div className="max-w-6xl mx-auto">
@@ -10,6 +48,7 @@ export function AboutSection() {
           {/* Video */}
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
             <video
+              ref={videoRef}
               src="/videos/sobre-mi.mp4"
               poster="/images/about-poster.png"
               autoPlay

@@ -8,7 +8,6 @@ const ABOUT_VIDEO_SRC =
 
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const [shouldLoad, setShouldLoad] = useState(false)
   const [isReady, setIsReady] = useState(false)
 
@@ -24,19 +23,12 @@ export function AboutSection() {
           observer.disconnect()
         }
       },
-      { rootMargin: '300px' }
+      { rootMargin: '400px' }
     )
 
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
-
-  // Kick off playback once the source is set
-  useEffect(() => {
-    if (shouldLoad && videoRef.current) {
-      videoRef.current.play().catch(() => {})
-    }
-  }, [shouldLoad])
 
   return (
     <section id="sobre-mi" className="py-20 px-4 bg-secondary">
@@ -52,18 +44,20 @@ export function AboutSection() {
                 isReady ? 'opacity-0' : 'opacity-100'
               }`}
             />
-            <video
-              ref={videoRef}
-              src={shouldLoad ? ABOUT_VIDEO_SRC : undefined}
-              muted
-              loop
-              playsInline
-              preload="none"
-              onCanPlay={() => setIsReady(true)}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                isReady ? 'opacity-100' : 'opacity-0'
-              }`}
-            />
+            {shouldLoad && (
+              <video
+                src={ABOUT_VIDEO_SRC}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                onCanPlay={() => setIsReady(true)}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                  isReady ? 'opacity-100' : 'opacity-0'
+                }`}
+              />
+            )}
           </div>
 
           {/* Content */}
